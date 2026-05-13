@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+
+:root {
+  --primary: #941a40;
+  --secondary: #f48f1e;
+  --tertiary: #cd2046;
+  --fonts: #282932;
+  --back: #ffffff;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  --color-fonts: var(--fonts);
+  --color-back: var(--back);
+  --font-merriweather: var(--font-merriweather);
+}
