@@ -15,10 +15,7 @@ interface Props {
 
 export default function AnnouncementCard({ data }: Props) {
   return (
-    <article
-      key={data.id}
-      className="group overflow-hidden rounded-2xl bg-white"
-    >
+    <article key={data.id} className="group overflow-hidden rounded-2xl bg-white">
       <div className="relative aspect-video overflow-hidden">
         <Image
           src={data.image}

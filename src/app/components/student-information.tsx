@@ -45,8 +45,8 @@ const informationItems = [
 
 export default function StudentInformation() {
   return (
-    <section className="bg-back py-12 md:py-20 bg-blue-500">
-      <div className="container mx-auto px-4 bg-red-500">
+    <section className="bg-back py-12 md:py-20">
+      <div className="container mx-auto px-4">
         {/* Title */}
         <div className="mb-12">
           <h2 className="text-primary text-3xl font-bold md:text-4xl">

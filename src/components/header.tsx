@@ -64,7 +64,7 @@ export default function Header() {
           <div className="absolute left-1/2 -translate-x-1/2 transform">
             <a href="/" className="flex items-center">
               <Image
-                src="/logo-postgrado.svg"
+                src="/logo-white.svg"
                 alt="Escuela de Posgrado UNSAAC"
                 width={200}
                 height={50}

@@ -27,7 +27,7 @@ const data = {
 export default function AdmissionProcess() {
   return (
     <section className="flex min-h-175 w-full flex-col lg:flex-row">
-      <div className="relative flex w-full flex-col items-center justify-center overflow-hidden p-8 text-center lg:w-1/2 md:p-16">
+      <div className="relative flex w-full flex-col items-center justify-center overflow-hidden p-8 text-center md:p-16 lg:w-1/2">
         <img
           src="https://res.cloudinary.com/ds0tjwccs/image/upload/v1778674128/Rectangle_9_phogva.svg"
           alt="Background Texture"
@@ -36,7 +36,7 @@ export default function AdmissionProcess() {
         <img
           src="bg.svg"
           alt="Background Texture"
-          className="absolute inset-0 h-full w-full object-cover hidden lg:block"
+          className="absolute inset-0 hidden h-full w-full object-cover lg:block"
         />
 
         <div className="relative z-10 flex w-full flex-col items-center">

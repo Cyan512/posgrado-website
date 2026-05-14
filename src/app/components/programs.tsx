@@ -1,4 +1,4 @@
-import ProgramCard from "@/src/components/card/program-card";
+import ProgramCard from '@/src/components/card/program-card';
 
 const programs = [
   {
@@ -33,8 +33,8 @@ const programs = [
 
 export default function Programs() {
   return (
-    <section className="bg-back py-12 md:py-20 bg-red-500">
-      <div className="container mx-auto px-4 bg-blue-500">
+    <section className="bg-back py-12 md:py-20">
+      <div className="container mx-auto px-4">
         <div className="mb-12">
           <h2 className="text-primary relative inline-block text-3xl font-bold md:text-4xl">
             Conoce Nuestros Programas
