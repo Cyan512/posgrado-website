@@ -16,6 +16,15 @@ const navLinks = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -34,7 +43,11 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 z-50 w-full shadow-lg">
+      <header
+        className={`fixed top-0 z-50 w-full transition-colors duration-300 ${
+          isScrolled ? 'bg-primary shadow-lg' : 'bg-transparent'
+        }`}
+      >
         <div className="flex items-center justify-between px-6 py-3 md:px-8 md:py-4">
           {/* Hamburger Menu Button - Left */}
           <button
