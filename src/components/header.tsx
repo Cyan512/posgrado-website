@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Menu, X, Search } from 'lucide-react';
 
@@ -17,6 +17,17 @@ const navLinks = [
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -28,7 +39,7 @@ export default function Header() {
           {/* Hamburger Menu Button - Left */}
           <button
             onClick={toggleMenu}
-            className="text-white transition-colors hover:text-secondary"
+            className="hover:text-secondary text-white transition-colors"
             aria-label="Toggle menu"
           >
             <Menu className="h-7 w-7" />
@@ -49,10 +60,7 @@ export default function Header() {
           </div>
 
           {/* Search Icon - Right */}
-          <button
-            className="text-white transition-colors hover:text-secondary"
-            aria-label="Search"
-          >
+          <button className="hover:text-secondary text-white transition-colors" aria-label="Search">
             <Search className="h-6 w-6" />
           </button>
         </div>
@@ -60,7 +68,7 @@ export default function Header() {
 
       {/* Full Screen Mobile Menu */}
       <div
-        className={`fixed inset-0 z-50 bg-primary transition-transform duration-300 ${
+        className={`bg-primary fixed inset-0 z-50 transition-transform duration-300 ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -76,7 +84,7 @@ export default function Header() {
             />
             <button
               onClick={toggleMenu}
-              className="text-white transition-colors hover:text-secondary"
+              className="hover:text-secondary text-white transition-colors"
               aria-label="Close menu"
             >
               <X className="h-7 w-7" />
@@ -90,7 +98,7 @@ export default function Header() {
                 key={link.name}
                 href={link.href}
                 onClick={toggleMenu}
-                className="text-2xl font-bold text-white transition-colors hover:text-secondary md:text-3xl"
+                className="hover:text-secondary text-2xl font-bold text-white transition-colors md:text-3xl"
               >
                 {link.name}
               </a>
@@ -99,20 +107,13 @@ export default function Header() {
 
           {/* Menu Footer */}
           <div className="border-t border-white/20 px-4 py-6 text-center">
-            <p className="text-sm text-white/70">
-              © 2026 Escuela de Posgrado UNSAAC
-            </p>
+            <p className="text-sm text-white/70">© 2026 Escuela de Posgrado UNSAAC</p>
           </div>
         </div>
       </div>
 
       {/* Overlay */}
-      {isMenuOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-black/50"
-          onClick={toggleMenu}
-        />
-      )}
+      {isMenuOpen && <div className="fixed inset-0 z-40 bg-black/50" onClick={toggleMenu} />}
     </>
   );
 }

@@ -49,11 +49,8 @@ export default function StudentInformation() {
       <div className="container mx-auto px-4">
         {/* Title */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold text-primary md:text-4xl">
-            <span className="border-b-4 border-secondary pb-1">
-              Informacion
-            </span>{' '}
-            para el Estudiante
+          <h2 className="text-primary text-3xl font-bold md:text-4xl">
+            <span className="border-secondary border-b-4 pb-1">Informacion</span> para el Estudiante
           </h2>
         </div>
 
@@ -61,7 +58,7 @@ export default function StudentInformation() {
         <div className="relative flex flex-col gap-8 lg:flex-row lg:items-start">
           {/* Left - Image with orange border */}
           <div className="lg:w-[45%]">
-            <div className="overflow-hidden rounded-lg border-8 border-secondary shadow-2xl">
+            <div className="border-secondary overflow-hidden rounded-lg border-8 shadow-2xl">
               <div className="relative aspect-[3/4]">
                 <Image
                   src="https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png"
@@ -76,14 +73,13 @@ export default function StudentInformation() {
           </div>
 
           {/* Right - Information Card (overlapping on desktop) */}
-          <div className="lg:absolute lg:left-[35%] lg:top-48 lg:max-w-2xl">
+          <div className="lg:absolute lg:top-48 lg:left-[35%] lg:max-w-2xl">
             <div className="rounded-2xl bg-white p-8 shadow-2xl">
               {/* Intro Text */}
-              <p className="mb-8 text-sm leading-relaxed text-fonts/70">
-                En esta sección encontrarás toda la información esencial para
-                empezar y gestionar tu vida académica, alumno. Te recomendamos
-                revisarla con frecuencia para estar al tanto de fechas
-                importantes, procesos administrativos.
+              <p className="text-fonts/70 mb-8 text-sm leading-relaxed">
+                En esta sección encontrarás toda la información esencial para empezar y gestionar tu
+                vida académica, alumno. Te recomendamos revisarla con frecuencia para estar al tanto
+                de fechas importantes, procesos administrativos.
               </p>
 
               {/* Information Items List */}
@@ -109,18 +105,16 @@ export default function StudentInformation() {
 
                       {/* Content */}
                       <div className="flex-1">
-                        <h3 className="mb-2 text-base font-bold text-fonts group-hover:text-primary">
+                        <h3 className="text-fonts group-hover:text-primary mb-2 text-base font-bold">
                           {item.title}
                         </h3>
-                        <p className="text-sm leading-relaxed text-fonts/60">
-                          {item.description}
-                        </p>
+                        <p className="text-fonts/60 text-sm leading-relaxed">{item.description}</p>
                       </div>
                     </a>
 
                     {/* Divider - except for last item */}
                     {index < informationItems.length - 1 && (
-                      <div className="mt-6 border-t border-fonts/10" />
+                      <div className="border-fonts/10 mt-6 border-t" />
                     )}
                   </div>
                 ))}

@@ -4,29 +4,25 @@ const programs = [
   {
     id: 1,
     title: 'MAESTRÍAS',
-    image:
-      'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png',
+    image: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png',
     link: '/maestrias',
   },
   {
     id: 2,
     title: 'DOCTORADOS',
-    image:
-      'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png',
+    image: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png',
     link: '/doctorados',
   },
   {
     id: 3,
     title: 'SEGUNDAS ESPECIALIDADES',
-    image:
-      'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png',
+    image: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png',
     link: '/segundas-especialidades',
   },
   {
     id: 4,
     title: 'RESIDENTADO MÉDICO',
-    image:
-      'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png',
+    image: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png',
     link: '/residentado-medico',
   },
 ];
@@ -37,9 +33,9 @@ export default function Programs() {
       <div className="container mx-auto px-4">
         {/* Title */}
         <div className="mb-12">
-          <h2 className="relative inline-block text-3xl font-bold text-primary md:text-4xl">
+          <h2 className="text-primary relative inline-block text-3xl font-bold md:text-4xl">
             Conoce Nuestros Programas
-            <span className="absolute bottom-0 left-0 h-1 w-full bg-secondary" />
+            <span className="bg-secondary absolute bottom-0 left-0 h-1 w-full" />
           </h2>
         </div>
 
@@ -61,17 +57,17 @@ export default function Programs() {
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-primary/70 transition-all duration-300 group-hover:bg-primary/80" />
+              <div className="bg-primary/70 group-hover:bg-primary/80 absolute inset-0 transition-all duration-300" />
 
               {/* Title */}
               <div className="absolute inset-0 flex items-center justify-center p-6">
-                <h3 className="text-center text-2xl font-bold uppercase leading-tight tracking-wide text-white transition-transform duration-300 group-hover:scale-105 md:text-3xl">
+                <h3 className="text-center text-2xl leading-tight font-bold tracking-wide text-white uppercase transition-transform duration-300 group-hover:scale-105 md:text-3xl">
                   {program.title}
                 </h3>
               </div>
 
               {/* Hover Effect Border */}
-              <div className="absolute inset-0 border-4 border-transparent transition-all duration-300 group-hover:border-secondary" />
+              <div className="group-hover:border-secondary absolute inset-0 border-4 border-transparent transition-all duration-300" />
             </a>
           ))}
         </div>

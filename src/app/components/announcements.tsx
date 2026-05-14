@@ -69,7 +69,7 @@ export default function Announcements() {
                   </div>
                 </div>
 
-                <h3 className="text-fonts mb-6 line-clamp-3w text-base leading-snug font-semibold">
+                <h3 className="text-fonts line-clamp-3w mb-6 text-base leading-snug font-semibold">
                   {announcement.title}
                 </h3>
 
