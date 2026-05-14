@@ -16,7 +16,7 @@ export default function ProgramCardV2({ data }: Props) {
         src={data.image}
         alt={data.title}
         fill
-        className="object-cover transition-transform duration-500 group-hover:scale-105"
+        className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
         sizes="(max-width: 768px) 100vw, 50vw"
       />
 
