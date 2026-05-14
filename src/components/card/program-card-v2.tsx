@@ -26,6 +26,7 @@ export default function ProgramCardV2({ data }: Props) {
         <h3 className="text-base font-bold tracking-wide text-white uppercase drop-shadow-lg">
           {data.title}
         </h3>
+        
         <span className="mt-1 text-sm font-medium text-white/80">Ver más</span>
       </div>
 
