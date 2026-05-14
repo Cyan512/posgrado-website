@@ -38,7 +38,7 @@ export default function Programs() {
           </h2>
         </div>
 
-        <div className="mt-10 flex h-[550px] w-full items-stretch gap-2">
+        <div className="mt-10 flex h-[550px] w-full items-stretch gap-2 max-md:h-auto max-md:flex-col max-md:gap-3">
           {programs.map((program) => (
             <ProgramCardV2 key={program.id} data={program} />
           ))}
