@@ -17,7 +17,7 @@ export default function AnnouncementCard({ data }: Props) {
   return (
     <article
       key={data.id}
-      className="group overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-2xl"
+      className="group overflow-hidden rounded-2xl bg-white transition-all duration-300 hover:shadow-2xl"
     >
       <div className="relative aspect-video overflow-hidden">
         <Image

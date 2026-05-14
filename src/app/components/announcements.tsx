@@ -1,5 +1,14 @@
+'use client';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+
 import { ArrowRight } from 'lucide-react';
 import AnnouncementCard from '@/src/components/announcement-card';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const announcements = [
   {
@@ -30,7 +39,7 @@ const announcements = [
 
 export default function Announcements() {
   return (
-    <section className="bg-back py-12 md:py-20">
+    <section className="py-12 md:py-20">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-12 flex items-center justify-between">
@@ -41,11 +50,29 @@ export default function Announcements() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <Swiper
+          modules={[Navigation, Pagination]}
+          pagination={{ clickable: true }}
+          spaceBetween={24}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1280: {
+              slidesPerView: 3,
+            },
+          }}
+          className="pb-14"
+        >
           {announcements.map((announcement) => (
-            <AnnouncementCard key={announcement.id} data={announcement} />
+            <SwiperSlide key={announcement.id} className="rounded-lg shadow-2xl">
+              <AnnouncementCard data={announcement} />
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );
