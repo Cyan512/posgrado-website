@@ -22,6 +22,8 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
+    // Sync state with current scroll position on mount
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -48,14 +50,14 @@ export default function Header() {
           isScrolled ? 'bg-primary shadow-lg' : 'bg-transparent'
         }`}
       >
-        <div className="flex items-center justify-between px-6 py-3 md:px-8 md:py-4">
+        <div className="flex items-center justify-between px-6 py-5 md:px-8 md:py-6">
           {/* Hamburger Menu Button - Left */}
           <button
             onClick={toggleMenu}
             className="hover:text-secondary text-white transition-colors"
             aria-label="Toggle menu"
           >
-            <Menu className="h-7 w-7" />
+            <Menu className="h-8 w-8" />
           </button>
 
           {/* Logo - Center (Absolutely positioned) */}
@@ -66,7 +68,7 @@ export default function Header() {
                 alt="Escuela de Posgrado UNSAAC"
                 width={200}
                 height={50}
-                className="h-auto w-48 md:w-56"
+                className="h-auto w-56 md:w-64"
                 priority
               />
             </a>
@@ -74,7 +76,7 @@ export default function Header() {
 
           {/* Search Icon - Right */}
           <button className="hover:text-secondary text-white transition-colors" aria-label="Search">
-            <Search className="h-6 w-6" />
+            <Search className="h-7 w-7" />
           </button>
         </div>
       </header>
