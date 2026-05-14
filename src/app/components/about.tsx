@@ -56,8 +56,8 @@ export default function About() {
           </div>
 
           <div className="relative order-first lg:order-last">
-            <div className="bg-tertiary/20 absolute -bottom-4 -left-4 -z-10 h-24 w-24  md:h-32 md:w-32" />
-            <div className="border-4 border-tertiary absolute -right-4 -top-4 -z-10 h-32 w-32 md:h-40 md:w-40" />
+            <div className="bg-tertiary/20 absolute -bottom-4 -left-4 -z-10 h-24 w-24 md:h-32 md:w-32" />
+            <div className="border-tertiary absolute -top-4 -right-4 -z-10 h-32 w-32 border-4 md:h-40 md:w-40" />
 
             <div className="border-secondary relative aspect-4/3 overflow-hidden border-4 shadow-2xl">
               <Image

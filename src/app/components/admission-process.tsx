@@ -69,22 +69,12 @@ export default function AdmissionProcess() {
         </div>
       </div>
 
-      <div className="relative flex min-h-125 w-full items-center justify-center bg-gray-100 p-8 md:w-1/2">
+      <div className="relative flex min-h-125 w-full items-center justify-center md:w-1/2">
         <img
-          src="/images/students-classroom.jpg"
+          src="https://res.cloudinary.com/ds0tjwccs/image/upload/v1778674128/Rectangle_9_phogva.svg"
           alt="Estudiantes en el aula"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="relative z-10 h-4/5 w-4/5 rotate-3 transform overflow-hidden rounded-lg border-12 border-white shadow-2xl transition-transform duration-500 hover:rotate-0">
-          <img
-            src="/images/campus-detail.jpg"
-            alt="Detalle del Campus"
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute bottom-4 left-4 rounded-lg bg-[#f49b33] px-4 py-2 font-bold text-white">
-            Campus 2026
-          </div>
-        </div>
       </div>
     </section>
   );
