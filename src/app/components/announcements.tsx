@@ -68,13 +68,11 @@ export default function Announcements() {
           className="pb-14"
         >
           {announcements.map((announcement) => (
-            <SwiperSlide key={announcement.id} className="rounded-lg shadow-2xl">
+            <SwiperSlide key={announcement.id} className="rounded-lg">
               <AnnouncementCard data={announcement} />
             </SwiperSlide>
           ))}
         </Swiper>
-
-        {/* Mobile Button - Below Cards */}
         <div className="mt-8 flex justify-center md:hidden">
           <button className="bg-primary hover:bg-primary/90 flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-all hover:gap-3">
             Más Comunicados

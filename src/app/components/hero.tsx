@@ -20,7 +20,7 @@ export default function Hero() {
 
       <div className="absolute inset-0 bg-[#0b2b53]/40" />
 
-      <div className="relative z-10 flex w-full flex-col items-start px-8 text-start md:px-20">
+      <div className="relative z-10 flex w-full flex-col items-center lg:items-start px-8 text-center lg:text-start md:px-20">
         <h1 className="text-secondary font-merriweather mb-6 max-w-3xl text-4xl leading-tight font-bold md:text-5xl">
           {data.title}
         </h1>

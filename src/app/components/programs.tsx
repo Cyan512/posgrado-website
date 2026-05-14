@@ -1,4 +1,4 @@
-import ProgramCardV2 from '@/src/components/card/program-card-v2';
+import ProgramCard from "@/src/components/card/program-card";
 
 const programs = [
   {
@@ -33,8 +33,8 @@ const programs = [
 
 export default function Programs() {
   return (
-    <section className="bg-back py-12 md:py-20">
-      <div className="container mx-auto px-4">
+    <section className="bg-back py-12 md:py-20 bg-red-500">
+      <div className="container mx-auto px-4 bg-blue-500">
         <div className="mb-12">
           <h2 className="text-primary relative inline-block text-3xl font-bold md:text-4xl">
             Conoce Nuestros Programas
@@ -42,9 +42,9 @@ export default function Programs() {
           </h2>
         </div>
 
-        <div className="mt-10 flex h-[550px] w-full items-stretch gap-2 max-md:h-auto max-md:flex-col max-md:gap-3">
+        <div className="mt-10 flex h-137.5 w-full items-stretch gap-2 max-md:h-auto max-md:flex-col max-md:gap-3">
           {programs.map((program) => (
-            <ProgramCardV2 key={program.id} data={program} />
+            <ProgramCard key={program.id} data={program} />
           ))}
         </div>
       </div>

@@ -6,7 +6,7 @@ interface Props {
   data: Programs;
 }
 
-export default function ProgramCardV2({ data }: Props) {
+export default function ProgramCard({ data }: Props) {
   return (
     <a
       href={data.link}
