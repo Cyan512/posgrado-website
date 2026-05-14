@@ -3,22 +3,22 @@ const data = {
   highlight: '2026-1',
   step: [
     {
-      icon: '/icons/edit.png',
+      icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778778779/Group_gxfyp1.svg',
       title: 'Inscripciones',
       description: 'Del 25 de junio al 11 de julio del 2026',
     },
     {
-      icon: '/icons/money.png',
+      icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778778780/Vector_rnjpam.svg',
       title: 'Costo por derecho de admisión',
       description: 'S/ 350.00',
     },
     {
-      icon: '/icons/monitor.png',
+      icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778778779/Vector_1_unbhqf.svg',
       title: 'Charla de inducción virtual',
       description: 'Viernes 12 de julio a las 20:00 horas',
     },
     {
-      icon: '/icons/exam.png',
+      icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778778779/Group_1_rvba4j.svg',
       title: 'Examen de admisión virtual',
       description: 'Sábado 13 de julio',
     },

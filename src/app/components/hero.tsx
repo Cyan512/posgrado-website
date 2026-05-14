@@ -18,13 +18,29 @@ export default function Hero() {
         priority
       />
 
-      <div className="absolute inset-0 bg-[#0b2b53]/60" />
+      <div className="absolute inset-0 bg-[#0b2b53]/40" />
 
-      <div className="relative z-10 max-w-3xl px-8 md:px-20">
-        <h1 className="text-secondary font-merriweather mb-6 text-4xl leading-tight font-bold md:text-5xl">
+      <div className="relative z-10 flex w-full flex-col items-start px-8 text-start md:px-20">
+        <h1 className="text-secondary font-merriweather mb-6 max-w-3xl text-4xl leading-tight font-bold md:text-5xl">
           {data.title}
         </h1>
-        <p className="text-sm leading-relaxed text-white md:text-base">{data.description}</p>
+        <p className="mb-10 max-w-2xl text-sm leading-relaxed text-white md:text-base">
+          {data.description}
+        </p>
+        <div className="flex flex-col gap-4 sm:flex-row">
+          <a
+            href="/programas"
+            className="bg-secondary hover:bg-secondary/90 rounded-md px-8 py-3 text-sm font-semibold text-white transition-colors"
+          >
+            Ver Programas
+          </a>
+          <a
+            href="/admision"
+            className="rounded-md border-2 border-white px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-[#0b2b53]"
+          >
+            Proceso de Admisión
+          </a>
+        </div>
       </div>
     </section>
   );

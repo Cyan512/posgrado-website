@@ -3,7 +3,7 @@ import Image from 'next/image';
 const informationItems = [
   {
     id: 1,
-    icon: '/icons/document.svg',
+    icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779027/politicas_1_oabhxt.svg',
     title: 'Reglamentos y Normas',
     description:
       'Conoce las disposiciones y lineamientos que rigen la vida académica y garantizan una convivencia respetuosa y ordenada.',
@@ -11,7 +11,7 @@ const informationItems = [
   },
   {
     id: 2,
-    icon: '/icons/process.svg',
+    icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779027/tramites_1_y3ft6v.svg',
     title: 'Trámites Académicos',
     description:
       'Conoce las disposiciones y lineamientos que rigen la vida académica y garantizan una convivencia respetuosa y ordenada.',
@@ -19,7 +19,7 @@ const informationItems = [
   },
   {
     id: 3,
-    icon: '/icons/calendar.svg',
+    icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779027/calendario_1_sqj6qq.svg',
     title: 'Calendario Académico y de Pagos',
     description:
       'Conoce las disposiciones y lineamientos que rigen la vida académica y garantizan una convivencia respetuosa y ordenada.',
@@ -27,7 +27,7 @@ const informationItems = [
   },
   {
     id: 4,
-    icon: '/icons/route.svg',
+    icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779026/especializacion_1_wexwon.svg',
     title: 'Ruta del graduado',
     description:
       'Conoce las disposiciones y lineamientos que rigen la vida académica y garantizan una convivencia respetuosa y ordenada.',
@@ -35,7 +35,7 @@ const informationItems = [
   },
   {
     id: 5,
-    icon: '/icons/language.svg',
+    icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779025/traduccion_1_niup72.svg',
     title: 'Acreditación del idioma',
     description:
       'Conoce las disposiciones y lineamientos que rigen la vida académica y garantizan una convivencia respetuosa y ordenada.',
@@ -58,10 +58,10 @@ export default function StudentInformation() {
         <div className="relative flex flex-col gap-8 lg:flex-row lg:items-start">
           {/* Left - Image with orange border */}
           <div className="lg:w-[45%]">
-            <div className="border-secondary overflow-hidden rounded-lg border-8 shadow-2xl">
-              <div className="relative aspect-[3/4]">
+            <div className="overflow-hidden rounded-lg shadow-2xl">
+              <div className="relative aspect-3/4">
                 <Image
-                  src="https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png"
+                  src="https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779026/WhatsApp_Image_2024-01-24_at_10.38.22_AM_8_1_ygqlmq.svg"
                   alt="Estatua representativa de la universidad"
                   fill
                   className="object-cover"

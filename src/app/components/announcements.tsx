@@ -13,7 +13,7 @@ import 'swiper/css/pagination';
 const announcements = [
   {
     id: 1,
-    image: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png',
+    image: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779025/Container_r5qrqz.svg',
     date: '14 June 2025',
     comments: '04',
     title:
@@ -21,7 +21,7 @@ const announcements = [
   },
   {
     id: 2,
-    image: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png',
+    image: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779025/Container_1_ofl0xz.svg',
     date: '14 June 2025',
     comments: '04',
     title:
@@ -29,7 +29,7 @@ const announcements = [
   },
   {
     id: 3,
-    image: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png',
+    image: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779025/Container_2_coicp2.svg',
     date: '14 June 2025',
     comments: '04',
     title:

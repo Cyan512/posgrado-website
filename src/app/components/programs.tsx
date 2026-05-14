@@ -4,25 +4,29 @@ const programs = [
   {
     id: 1,
     title: 'MAESTRÍAS',
-    image: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png',
+    image:
+      'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779025/3b2fdf8b03990a67bce36365e4cedc134a7e240e_dk39a8.jpg',
     link: '/maestrias',
   },
   {
     id: 2,
     title: 'DOCTORADOS',
-    image: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png',
+    image:
+      'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779028/88210f3acdeb4010276a7cba78444696878f1bc6_xdkq5p.jpg',
     link: '/doctorados',
   },
   {
     id: 3,
     title: 'SEGUNDAS ESPECIALIDADES',
-    image: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png',
+    image:
+      'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779028/2c1867bd600373362873a36e35ec03e052d28b6f_mdyaoe.jpg',
     link: '/segundas-especialidades',
   },
   {
     id: 4,
     title: 'RESIDENTADO MÉDICO',
-    image: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png',
+    image:
+      'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779029/68a7fc879821b5ecf452f92c752a117aeb04dea2_x0o2az.jpg',
     link: '/residentado-medico',
   },
 ];
