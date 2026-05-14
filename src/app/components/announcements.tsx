@@ -44,7 +44,7 @@ export default function Announcements() {
         {/* Header */}
         <div className="mb-12 flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
           <h2 className="text-primary text-3xl font-bold md:text-4xl">Comunicados</h2>
-          <button className="bg-primary hover:bg-primary/90 hidden md:flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-all hover:gap-3">
+          <button className="bg-primary hover:bg-primary/90 hidden items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-all hover:gap-3 md:flex">
             Más Comunicados
             <ArrowRight className="h-4 w-4" />
           </button>
