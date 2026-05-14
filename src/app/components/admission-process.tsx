@@ -3,7 +3,7 @@ const data = {
   highlight: '2026-1',
   step: [
     {
-      icon: '/icons/edit.png', // Reemplaza con tu ruta
+      icon: '/icons/edit.png',
       title: 'Inscripciones',
       description: 'Del 25 de junio al 11 de julio del 2026',
     },
