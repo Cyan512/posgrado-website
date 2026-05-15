@@ -1,23 +1,12 @@
+import { HomeAbout } from '@/src/models/strapi/pages/home';
 import Image from 'next/image';
 
-const data = {
-  quote: '"La educación es el arma más poderosa que puedes usar para cambiar el mundo"',
+interface Props {
+  data: HomeAbout;
+}
 
-  description:
-    'Desde 1984, nos hemos dedicado a una misión singular: dotar a la próxima generación de las habilidades de pensamiento crítico necesarias para desenvolverse en un mundo complejo. La Escuela de Posgrado de la Universidad Nacional de San Antonio Abad del Cusco no es solo una universidad, es un crisol para el cambio.',
-
-  authority: {
-    name: 'Dr. Pepito W. Hamilton',
-    role: 'Director de la Escuela de Posgrado',
-  },
-
-  image: {
-    src: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778756356/Rectangle_4_oqhk1b.png',
-    alt: 'Auditorio de la Escuela de Posgrado',
-  },
-};
-
-export default function About() {
+export default function About({ data }: Props) {
+  console.log(data);
   return (
     <section className="relative overflow-hidden py-12 md:py-20">
       <div className="absolute inset-0 -z-10">
@@ -50,8 +39,8 @@ export default function About() {
             </div>
 
             <div className="pt-4">
-              <p className="text-fonts text-lg font-bold">{data.authority.name}</p>
-              <p className="text-fonts/70 text-sm md:text-base">{data.authority.role}</p>
+              <p className="text-fonts text-lg font-bold">{data.authorityName}</p>
+              <p className="text-fonts/70 text-sm md:text-base">{data.authorityRole}</p>
             </div>
           </div>
 
@@ -61,7 +50,7 @@ export default function About() {
 
             <div className="border-secondary relative aspect-4/3 overflow-hidden border-4 shadow-2xl">
               <Image
-                src={data.image.src}
+                src={data.image.src.url}
                 alt={data.image.alt}
                 fill
                 className="object-cover"

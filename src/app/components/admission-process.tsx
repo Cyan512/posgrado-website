@@ -1,36 +1,16 @@
-const data = {
-  title: 'Proceso de Admisión',
-  highlight: '2026-1',
-  step: [
-    {
-      icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778778779/Group_gxfyp1.svg',
-      title: 'Inscripciones',
-      description: 'Del 25 de junio al 11 de julio del 2026',
-    },
-    {
-      icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778778780/Vector_rnjpam.svg',
-      title: 'Costo por derecho de admisión',
-      description: 'S/ 350.00',
-    },
-    {
-      icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778778779/Vector_1_unbhqf.svg',
-      title: 'Charla de inducción virtual',
-      description: 'Viernes 12 de julio a las 20:00 horas',
-    },
-    {
-      icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778778779/Group_1_rvba4j.svg',
-      title: 'Examen de admisión virtual',
-      description: 'Sábado 13 de julio',
-    },
-  ],
-};
-export default function AdmissionProcess() {
+import Button from '@/src/components/button';
+import { HomeAdmissionProcess } from '@/src/models/strapi/pages/home';
+
+interface Props {
+  data: HomeAdmissionProcess;
+}
+export default function AdmissionProcess({ data }: Props) {
   return (
     <section className="flex min-h-175 w-full flex-col lg:flex-row">
       <div className="relative flex w-full flex-col items-center justify-center overflow-hidden p-8 text-center md:p-16 lg:w-1/2">
         <img
-          src="https://res.cloudinary.com/ds0tjwccs/image/upload/v1778674128/Rectangle_9_phogva.svg"
-          alt="Background Texture"
+          src={data.image.src.url}
+          alt={data.image.alt}
           className="absolute inset-0 h-full w-full object-cover lg:hidden"
         />
         <img
@@ -50,14 +30,14 @@ export default function AdmissionProcess() {
           </div>
 
           <div className="grid w-full max-w-lg grid-cols-1 gap-6 sm:grid-cols-2">
-            {data.step.map((step, index) => (
+            {data.steps.map((step, index) => (
               <div
                 key={index}
                 className="flex min-h-50 flex-col items-center justify-center rounded-[40px] border border-white/10 bg-white/10 p-6 backdrop-blur-sm transition-all hover:bg-white/20"
               >
                 <div className="mb-4 flex h-12 w-12 items-center justify-center">
                   <img
-                    src={step.icon}
+                    src={step.image.src.url}
                     alt={step.title}
                     className="h-full w-auto object-contain brightness-0 invert"
                   />
@@ -68,16 +48,16 @@ export default function AdmissionProcess() {
             ))}
           </div>
 
-          <button className="mt-12 rounded-xl bg-[#f49b33] px-8 py-3 font-bold text-white shadow-lg transition-colors duration-300 hover:bg-[#e08a2a]">
-            Más Información
-          </button>
+          <Button href={data.link.href} variant={data.link.variant} size="md" className="mt-12">
+            {data.link.label}
+          </Button>
         </div>
       </div>
 
       <div className="relative hidden min-h-125 w-full items-center justify-center lg:flex lg:w-1/2">
         <img
-          src="https://res.cloudinary.com/ds0tjwccs/image/upload/v1778674128/Rectangle_9_phogva.svg"
-          alt="Estudiantes en el aula"
+          src={data.image.src.url}
+          alt={data.image.alt}
           className="absolute inset-0 h-full w-full object-cover"
         />
       </div>

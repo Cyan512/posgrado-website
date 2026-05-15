@@ -1,13 +1,6 @@
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
-
-interface Announcement {
-  id: number;
-  image: string;
-  date: string;
-  comments: string;
-  title: string;
-}
+import { Announcement } from '../models/strapi/collection-types/announcement';
 
 interface Props {
   data: Announcement;
@@ -18,8 +11,8 @@ export default function AnnouncementCard({ data }: Props) {
     <article key={data.id} className="group overflow-hidden rounded-2xl bg-white">
       <div className="relative aspect-video overflow-hidden">
         <Image
-          src={data.image}
-          alt={data.title}
+          src={data.image.src.url}
+          alt={data.image.alt}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -31,10 +24,6 @@ export default function AnnouncementCard({ data }: Props) {
           <div className="flex items-center gap-2">
             <span className="bg-secondary inline-block h-2 w-2 rounded-full" />
             <span>{data.date}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="bg-secondary inline-block h-2 w-2 rounded-full" />
-            <span>Comment ({data.comments})</span>
           </div>
         </div>
 
