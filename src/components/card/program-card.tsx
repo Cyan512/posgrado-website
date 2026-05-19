@@ -1,4 +1,4 @@
-import { Programs } from '@/src/models/programs';
+import { Programs } from '@/src/models/strapi/collection-types/programs';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';

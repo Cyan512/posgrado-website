@@ -6,7 +6,6 @@ interface Props {
 }
 
 export default function About({ data }: Props) {
-  console.log(data);
   return (
     <section className="relative overflow-hidden py-12 md:py-20">
       <div className="absolute inset-0 -z-10">

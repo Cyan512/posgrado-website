@@ -25,6 +25,8 @@ function renderComponent(component: HomeBlocks, index: number) {
       return <AdmissionProcess key={key} data={component} />;
     case 'home.announcements':
       return <Announcements key={key} data={component} />;
+    case 'home.banner':
+      return <Banner key={key} data={component} />;
     default:
       return null;
   }
@@ -41,7 +43,6 @@ export default function Home() {
   return (
     <>
       {content.map((component, index) => renderComponent(component, index))}
-      <Banner />
       <Programs />
       <StudentInformation />
     </>

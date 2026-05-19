@@ -41,7 +41,18 @@ export interface HomeAnnouncements {
   announcements: Announcement[];
 }
 
-export type HomeBlocks = HomeHero | HomeAbout | HomeAdmissionProcess | HomeAnnouncements;
+export interface HomeBanner {
+  __component: 'home.banner';
+  id: number;
+  image: Image;
+}
+
+export type HomeBlocks =
+  | HomeHero
+  | HomeAbout
+  | HomeAdmissionProcess
+  | HomeAnnouncements
+  | HomeBanner;
 
 export type HomeContent = StrapiEntity<{
   content: HomeBlocks[];
