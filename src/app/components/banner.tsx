@@ -126,7 +126,8 @@ export default function Banner({ data }: Props) {
                   <Image
                     src={item.image.src.url}
                     alt={item.image.alt}
-                    fill
+                    width={40}
+                    height={40}
                     className="h-full w-auto object-contain opacity-90"
                   />
                 </div>
