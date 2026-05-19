@@ -1,6 +1,7 @@
 import { Programs } from '@/src/models/programs';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 interface Props {
   data: Programs;
@@ -8,7 +9,7 @@ interface Props {
 
 export default function ProgramCard({ data }: Props) {
   return (
-    <a
+    <Link
       href={data.link}
       className="group relative h-35 w-full shrink-0 overflow-hidden rounded-2xl transition-all duration-500 ease-in-out focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none md:h-full md:w-auto md:min-w-0 md:flex-1 md:hover:flex-3 md:focus-visible:flex-3"
     >
@@ -45,6 +46,6 @@ export default function ProgramCard({ data }: Props) {
           <ArrowRight className="h-4 w-4" />
         </span>
       </div>
-    </a>
+    </Link>
   );
 }
