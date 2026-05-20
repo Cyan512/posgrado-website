@@ -1,47 +1,33 @@
 'use client';
 
 import { useState } from 'react';
-
-const programCategories = [
-  { value: 'maestrias', label: 'Maestrías' },
-  { value: 'doctorados', label: 'Doctorados' },
-  { value: 'segundas-especialidades', label: 'Segundas Especialidades' },
-  { value: 'residentado-medico', label: 'Residentado Médico' },
-];
-
-const programOptions: Record<string, string[]> = {
-  maestrias: [
-    'Maestría en Administración de Negocios',
-    'Maestría en Gestión Pública',
-    'Maestría en Educación',
-    'Maestría en Ingeniería de Sistemas',
-    'Maestría en Derecho Civil',
-    'Maestría en Salud Pública',
-  ],
-  doctorados: [
-    'Doctorado en Ciencias',
-    'Doctorado en Educación',
-    'Doctorado en Derecho',
-    'Doctorado en Administración',
-  ],
-  'segundas-especialidades': [
-    'Segunda Especialidad en Contabilidad',
-    'Segunda Especialidad en Derecho Penal',
-    'Segunda Especialidad en Psicología Clínica',
-    'Segunda Especialidad en Enfermería',
-  ],
-  'residentado-medico': [
-    'Residentado en Medicina Interna',
-    'Residentado en Cirugía General',
-    'Residentado en Pediatría',
-    'Residentado en Ginecología y Obstetricia',
-    'Residentado en Anestesiología',
-  ],
-};
+import { useStrapi } from '../hooks/use-strapi';
+import { StrapiResponse } from '../models/strapi/strapi';
+import { ProgramType } from '../models/strapi/collection-types/program_type';
 
 const docTypes = ['DNI', 'CE', 'Pasaporte'];
 
 export default function RegisterForm() {
+  const { data, loading } = useStrapi<StrapiResponse<ProgramType[]>>('/api/program-types?populate=programs');
+  
+  const categories = data?.data ?? [];
+  
+  const programCategories = categories.map((cat) => ({
+    value: cat.name.toLowerCase().replace(/\s+/g, '-'),
+    label: cat.name,
+    programs: cat.programs ?? [],
+  }));
+
+  console.log('Categories:', categories);
+  console.log('ProgramCategories:', programCategories);
+
+  const getProgramsForCategory = (categoryName: string) => {
+    const category = categories.find(
+      (c) => c.name.toLowerCase().replace(/\s+/g, '-') === categoryName
+    );
+    return category?.programs?.map((p) => p.name) ?? [];
+  };
+
   const [docType, setDocType] = useState('DNI');
   const [bachelor, setBachelor] = useState<'si' | 'no' | null>(null);
   const [authorized, setAuthorized] = useState(false);
@@ -128,13 +114,14 @@ export default function RegisterForm() {
             value={selectedCategory}
             onChange={handleCategoryChange}
             required
+            disabled={loading}
             className="border-primary bg-back focus:ring-primary/30 w-full appearance-none rounded-xl border-2 px-4 py-3 text-sm outline-none focus:ring-2 disabled:opacity-50"
             style={{ color: selectedCategory ? 'var(--fonts)' : 'rgba(40,41,50,0.5)' }}
           >
             <option value="" disabled>
-              Elige tu programa
+              {loading ? 'Cargando...' : 'Elige tu programa'}
             </option>
-            {programCategories.map((cat) => (
+            {!loading && programCategories.map((cat) => (
               <option key={cat.value} value={cat.value} className="text-fonts">
                 {cat.label}
               </option>
@@ -158,7 +145,7 @@ export default function RegisterForm() {
               <option value="" disabled>
                 Elige tu especialidad
               </option>
-              {programOptions[selectedCategory].map((p) => (
+              {getProgramsForCategory(selectedCategory).map((p) => (
                 <option key={p} value={p} className="text-fonts">
                   {p}
                 </option>
