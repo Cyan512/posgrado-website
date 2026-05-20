@@ -3,6 +3,7 @@ import { StrapiEntity } from '@/src/models/strapi/strapi';
 import { Image } from '@/src/models/strapi/shared/image';
 import { Step } from '@/src/models/strapi/shared/step';
 import { Announcement } from '../collection-types/announcement';
+import { InformationItems } from '../shared/information-items';
 
 export interface HomeHero {
   __component: 'home.hero';
@@ -47,12 +48,29 @@ export interface HomeBanner {
   image: Image;
 }
 
+export interface HomePrograms {
+  __component: 'home.programs';
+  id: number;
+  title: string;
+}
+
+export interface HomeStudentInformation {
+  __component: 'home.student-information';
+  id: number;
+  title: string;
+  image: Image;
+  description: string;
+  items: InformationItems[];
+}
+
 export type HomeBlocks =
   | HomeHero
   | HomeAbout
   | HomeAdmissionProcess
   | HomeAnnouncements
-  | HomeBanner;
+  | HomeBanner
+  | HomePrograms
+  | HomeStudentInformation;
 
 export type HomeContent = StrapiEntity<{
   content: HomeBlocks[];

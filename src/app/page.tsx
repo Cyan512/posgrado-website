@@ -27,6 +27,10 @@ function renderComponent(component: HomeBlocks, index: number) {
       return <Announcements key={key} data={component} />;
     case 'home.banner':
       return <Banner key={key} data={component} />;
+    case 'home.programs':
+      return <Programs key={key} data={component} />;
+    case 'home.student-information':
+      return <StudentInformation key={key} data={component} />;
     default:
       return null;
   }
@@ -40,11 +44,5 @@ export default function Home() {
 
   const content = data?.data?.content ?? [];
 
-  return (
-    <>
-      {content.map((component, index) => renderComponent(component, index))}
-      <Programs />
-      <StudentInformation />
-    </>
-  );
+  return <>{content.map((component, index) => renderComponent(component, index))}</>;
 }

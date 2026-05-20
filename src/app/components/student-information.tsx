@@ -1,49 +1,12 @@
+import { HomeStudentInformation } from '@/src/models/strapi/pages/home';
 import Image from 'next/image';
+import Link from 'next/link';
 
-const informationItems = [
-  {
-    id: 1,
-    icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779027/politicas_1_oabhxt.svg',
-    title: 'Reglamentos y Normas',
-    description:
-      'Conoce las disposiciones y lineamientos que rigen la vida académica y garantizan una convivencia respetuosa y ordenada.',
-    link: '/reglamentos',
-  },
-  {
-    id: 2,
-    icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779027/tramites_1_y3ft6v.svg',
-    title: 'Trámites Académicos',
-    description:
-      'Conoce las disposiciones y lineamientos que rigen la vida académica y garantizan una convivencia respetuosa y ordenada.',
-    link: '/tramites',
-  },
-  {
-    id: 3,
-    icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779027/calendario_1_sqj6qq.svg',
-    title: 'Calendario Académico y de Pagos',
-    description:
-      'Conoce las disposiciones y lineamientos que rigen la vida académica y garantizan una convivencia respetuosa y ordenada.',
-    link: '/calendario',
-  },
-  {
-    id: 4,
-    icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779026/especializacion_1_wexwon.svg',
-    title: 'Ruta del graduado',
-    description:
-      'Conoce las disposiciones y lineamientos que rigen la vida académica y garantizan una convivencia respetuosa y ordenada.',
-    link: '/ruta-graduado',
-  },
-  {
-    id: 5,
-    icon: 'https://res.cloudinary.com/ds0tjwccs/image/upload/v1778779025/traduccion_1_niup72.svg',
-    title: 'Acreditación del idioma',
-    description:
-      'Conoce las disposiciones y lineamientos que rigen la vida académica y garantizan una convivencia respetuosa y ordenada.',
-    link: '/acreditacion-idioma',
-  },
-];
+interface Props {
+  data: HomeStudentInformation;
+}
 
-export default function StudentInformation() {
+export default function StudentInformation({ data }: Props) {
   return (
     <section className="bg-back py-12 md:py-20">
       <div className="container mx-auto px-4">
@@ -84,17 +47,17 @@ export default function StudentInformation() {
 
               {/* Information Items List */}
               <div className="space-y-6">
-                {informationItems.map((item, index) => (
+                {data.items.map((item, index) => (
                   <div key={item.id} className="group">
-                    <a
-                      href={item.link}
+                    <Link
+                      href={item.link.href}
                       className="flex items-start gap-4 transition-all duration-300"
                     >
                       {/* Icon */}
                       <div className="flex-shrink-0 pt-1">
                         <div className="flex h-14 w-14 items-center justify-center">
                           <Image
-                            src={item.icon}
+                            src={item.icon.url}
                             alt=""
                             width={56}
                             height={56}
@@ -110,10 +73,10 @@ export default function StudentInformation() {
                         </h3>
                         <p className="text-fonts/60 text-sm leading-relaxed">{item.description}</p>
                       </div>
-                    </a>
+                    </Link>
 
                     {/* Divider - except for last item */}
-                    {index < informationItems.length - 1 && (
+                    {index < data.items.length - 1 && (
                       <div className="border-fonts/10 mt-6 border-t" />
                     )}
                   </div>

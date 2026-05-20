@@ -1,4 +1,4 @@
-export type ProgramType = 'maestria' | 'doctorado' | 'segunda_especialidad' | 'residentado_medico';
+import { ProgramType } from './program_type';
 
 export interface Program {
   id: number;
