@@ -3,10 +3,16 @@
 import { CardImage } from '@/components/card-image';
 import { useStrapi } from '@/src/hooks/use-strapi';
 
+import { StrapiImage } from '@/src/models/strapi/shared/image';
+
 type Program = {
   id: number;
   name: string;
   slug: string | null;
+  call: boolean;
+  time_end: string;
+  mode: string;
+  image: StrapiImage;
 };
 
 type ProgramWithSlug = Program & { slug: string };
