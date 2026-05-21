@@ -23,10 +23,5 @@ export default async function CategoriaPage({ params }: Props) {
     notFound();
   }
 
-  return (
-    <CategoriaContent
-      categoria={categoria}
-      categoriaStrapi={categoriaStrapi}
-    />
-  );
+  return <CategoriaContent categoria={categoria} categoriaStrapi={categoriaStrapi} />;
 }

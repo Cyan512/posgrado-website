@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
-import { Merriweather } from 'next/font/google';
+import { Merriweather, Geist } from 'next/font/google';
 import './globals.css';
 import Header from '@/src/components/header';
 import Footer from '@/src/components/footer';
+import { cn } from '@/lib/utils';
+
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const merriweather = Merriweather({
   variable: '--font-merriweather',
@@ -22,7 +25,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${merriweather.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={cn('h-full', 'antialiased', merriweather.variable, 'font-sans', geist.variable)}
+    >
       <body className="font-merriweather text-fonts flex min-h-full flex-col">
         <Header />
         <main>{children}</main>
