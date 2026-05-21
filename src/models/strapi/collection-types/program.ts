@@ -4,4 +4,6 @@ export interface Program {
   id: number;
   name: string;
   program_type: ProgramType;
+  slug: string;
+  description: string;
 }

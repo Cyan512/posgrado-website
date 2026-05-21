@@ -1,6 +1,5 @@
 'use client';
 
-import ProgramCard from '@/src/components/card/program-card';
 import { useStrapi } from '@/src/hooks/use-strapi';
 import { ProgramType } from '@/src/models/strapi/collection-types/program_type';
 import { HomePrograms } from '@/src/models/strapi/pages/home';
@@ -19,6 +18,7 @@ export default function Programs({ data }: Props) {
     loading,
     error,
   } = useStrapi<StrapiResponse<ProgramType[]>>('/api/program-types?populate=*');
+  console.log('test', programs);
 
   const programsList = programs?.data ?? [];
   return (
@@ -50,7 +50,7 @@ export default function Programs({ data }: Props) {
 
               <div className="absolute inset-0 flex flex-col justify-end p-4 md:hidden">
                 <h3 className="text-base font-bold tracking-wide text-white uppercase drop-shadow-lg">
-                  {data.title}
+                  {program.name}
                 </h3>
 
                 <span className="mt-1 text-sm font-medium text-white/80">Ver más</span>
@@ -58,13 +58,13 @@ export default function Programs({ data }: Props) {
 
               <div className="absolute inset-0 hidden px-6 opacity-100 transition-opacity duration-300 group-hover:opacity-0 md:block">
                 <span className="absolute bottom-6 rotate-180 text-xl font-bold tracking-widest text-white uppercase drop-shadow [writing-mode:vertical-rl]">
-                  {data.title}
+                  {program.name}
                 </span>
               </div>
 
               <div className="absolute inset-0 hidden flex-col justify-end p-6 opacity-0 transition-opacity delay-150 duration-300 group-hover:opacity-100 md:flex">
                 <h3 className="mb-3 text-xl font-bold tracking-wide text-white uppercase drop-shadow-lg">
-                  {data.title}
+                  {program.name}
                 </h3>
                 <span className="inline-flex w-fit items-center gap-1 rounded-full border border-white/60 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-sm transition-colors duration-200 hover:bg-white/20">
                   Ver más

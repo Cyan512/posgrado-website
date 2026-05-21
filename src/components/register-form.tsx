@@ -8,10 +8,12 @@ import { ProgramType } from '../models/strapi/collection-types/program_type';
 const docTypes = ['DNI', 'CE', 'Pasaporte'];
 
 export default function RegisterForm() {
-  const { data, loading } = useStrapi<StrapiResponse<ProgramType[]>>('/api/program-types?populate=programs');
-  
+  const { data, loading } = useStrapi<StrapiResponse<ProgramType[]>>(
+    '/api/program-types?populate=programs'
+  );
+
   const categories = data?.data ?? [];
-  
+
   const programCategories = categories.map((cat) => ({
     value: cat.name.toLowerCase().replace(/\s+/g, '-'),
     label: cat.name,
@@ -121,11 +123,12 @@ export default function RegisterForm() {
             <option value="" disabled>
               {loading ? 'Cargando...' : 'Elige tu programa'}
             </option>
-            {!loading && programCategories.map((cat) => (
-              <option key={cat.value} value={cat.value} className="text-fonts">
-                {cat.label}
-              </option>
-            ))}
+            {!loading &&
+              programCategories.map((cat) => (
+                <option key={cat.value} value={cat.value} className="text-fonts">
+                  {cat.label}
+                </option>
+              ))}
           </select>
           <span className="text-fonts/40 pointer-events-none absolute top-1/2 right-4 -translate-y-1/2">
             &#8964;
