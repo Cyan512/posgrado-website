@@ -5,6 +5,7 @@ import { StrapiResponse } from '@/src/models/strapi/strapi';
 import { Program } from '@/src/models/strapi/collection-types/program';
 import Button from '@/src/components/button';
 import { Calendar, HandCoins, CheckCircle2, XCircle } from 'lucide-react';
+import { TabsDemo } from '@/components/tabs-demo';
 
 const months = [
   'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
@@ -84,6 +85,7 @@ export default function ProgramDetailContent({ categoria, slug }: Props) {
             <p className="text-gray-700 leading-relaxed dark:text-gray-300">
               {program.description}
             </p>
+            <TabsDemo/>
           </div>
 
           <aside className="space-y-6">
