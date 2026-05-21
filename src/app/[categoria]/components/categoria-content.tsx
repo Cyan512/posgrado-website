@@ -20,6 +20,19 @@ type Props = {
   categoriaStrapi: string;
 };
 
+// Función para formatear fecha de YYYY-MM-DD a "DD de Mes de YYYY"
+function formatDate(dateString: string): string {
+  const months = [
+    'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+    'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
+  ];
+
+  const [year, month, day] = dateString.split('-');
+  const monthName = months[parseInt(month) - 1];
+
+  return `${parseInt(day)} de ${monthName} de ${year}`;
+}
+
 export default function CategoriaContent({ categoria, categoriaStrapi }: Props) {
   const endpoint = `/api/programs?populate=*&filters[program_type][name][$eq]=${encodeURIComponent(
     categoriaStrapi
@@ -49,7 +62,7 @@ export default function CategoriaContent({ categoria, categoriaStrapi }: Props) 
         {data?.data.length === 0 ? (
           <p>No hay programas disponibles.</p>
         ) : (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4">
             {data?.data
               .filter((item): item is ProgramWithSlug => item.slug !== null)
               .map((item) => (
@@ -58,6 +71,9 @@ export default function CategoriaContent({ categoria, categoriaStrapi }: Props) 
                   title={item.name}
                   href={`/${categoria}/${item.slug}`}
                   call={item.call}
+                  time_end={formatDate(item.time_end)}
+                  mode={item.mode}
+                  image={item.image.url}
                 />
               ))}
           </div>
