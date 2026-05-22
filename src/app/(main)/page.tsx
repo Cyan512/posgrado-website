@@ -8,10 +8,10 @@ import {
   Hero,
   Programs,
   StudentInformation,
-} from '@/src/app/components';
-import { useStrapi } from '../hooks/use-strapi';
-import { HomeBlocks, HomeContent } from '../models/strapi/pages/home';
-import { StrapiResponse } from '../models/strapi/strapi';
+} from '@/src/app/(main)/components';
+import { useStrapi } from '@/src/hooks/use-strapi';
+import { HomeBlocks, HomeContent } from '@/src/models/strapi/pages/home';
+import { StrapiResponse } from '@/src/models/strapi/strapi';
 
 function renderComponent(component: HomeBlocks, index: number) {
   const key = `${component.id}-${index}`;
