@@ -27,7 +27,8 @@ import {
     Menu,
     Layers,
     Code2,
-    ChevronDown
+    ChevronDown,
+    ChevronRight
 } from 'lucide-react';
 
 const menuItems = [
@@ -79,57 +80,60 @@ export function AppSidebar() {
                     <p className="text-xs text-muted-foreground">Component Library v1.0</p>
                 </div>
             </SidebarHeader>
-            
-            <SidebarContent className="px-3 py-4">
+
+            <SidebarContent className="px-2 py-4">
                 {menuItems.map((section) => {
                     const isOpen = openSections.includes(section.title);
                     return (
                         <SidebarGroup key={section.title} className="mb-2">
                             <button
                                 onClick={() => toggleSection(section.title)}
-                                className="w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-muted/50 transition-colors group"
+                                className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-muted/50 transition-colors group"
                             >
-                                <SidebarGroupLabel className="text-xs font-semibold uppercase tracking-wider text-muted-foreground group-hover:text-foreground transition-colors">
+                                <div className="rounded-md bg-muted/50 p-1.5">
+                                    {isOpen ? (
+                                        <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                                    ) : (
+                                        <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                                    )}
+                                </div>
+                                <SidebarGroupLabel className="text-sm font-semibold text-foreground group-hover:text-foreground transition-colors flex-1 text-left">
                                     {section.title}
                                 </SidebarGroupLabel>
-                                <ChevronDown
-                                    className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${
-                                        isOpen ? 'rotate-180' : ''
-                                    }`}
-                                />
                             </button>
-                            
+
                             <div
-                                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                                    isOpen ? 'max-h-[500px] opacity-100 mt-1' : 'max-h-0 opacity-0'
-                                }`}
+                                className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100 mt-1' : 'max-h-0 opacity-0'
+                                    }`}
                             >
                                 <SidebarGroupContent>
-                                    <SidebarMenu className="space-y-1">
-                                        {section.items.map((item) => {
+                                    <SidebarMenu className="relative pl-6">
+                                        {/* Línea vertical */}
+                                        <div className="absolute left-[22px] top-0 bottom-0 w-px bg-border" />
+
+                                        {section.items.map((item, index) => {
                                             const isActive = pathname === item.url;
+                                            const isLast = index === section.items.length - 1;
+
                                             return (
-                                                <SidebarMenuItem key={item.title}>
+                                                <SidebarMenuItem key={item.title} className="relative">
+                                                    {/* Línea horizontal */}
+                                                    <div className="absolute left-0 top-1/2 w-4 h-px bg-border" />
+
                                                     <SidebarMenuButton
                                                         asChild
                                                         isActive={isActive}
-                                                        className="group relative rounded-lg transition-all hover:bg-muted/80"
+                                                        className="group relative rounded-lg transition-all hover:bg-muted/80 pl-4"
                                                     >
-                                                        <Link href={item.url} className="flex items-center gap-3 px-3 py-2">
-                                                            <div className={`rounded-md p-1.5 transition-colors ${
-                                                                isActive
-                                                                    ? 'bg-primary text-primary-foreground'
-                                                                    : 'bg-muted/50 text-muted-foreground group-hover:bg-muted group-hover:text-foreground'
-                                                            }`}>
-                                                                <item.icon className="h-4 w-4" />
-                                                            </div>
-                                                            <span className={`text-sm font-medium ${
-                                                                isActive ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground'
-                                                            }`}>
+                                                        <Link href={item.url} className="flex items-center gap-3 py-2">
+                                                            <item.icon className={`h-4 w-4 transition-colors ${isActive ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground'
+                                                                }`} />
+                                                            <span className={`text-sm font-medium ${isActive ? 'text-foreground font-semibold' : 'text-muted-foreground group-hover:text-foreground'
+                                                                }`}>
                                                                 {item.title}
                                                             </span>
                                                             {isActive && (
-                                                                <div className="absolute right-2 h-1.5 w-1.5 rounded-full bg-primary" />
+                                                                <div className="ml-auto h-1.5 w-1.5 rounded-full bg-primary" />
                                                             )}
                                                         </Link>
                                                     </SidebarMenuButton>
@@ -143,7 +147,7 @@ export function AppSidebar() {
                     );
                 })}
             </SidebarContent>
-            
+
             <SidebarFooter className="border-t p-4 bg-muted/30">
                 <div className="space-y-2">
                     <div className="flex items-center justify-between text-xs">
