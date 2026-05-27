@@ -2,6 +2,7 @@
 
 import { CardImage } from '@/components/card-image';
 import { useStrapi } from '@/src/hooks/use-strapi';
+import CategoriaHero from './categoria-hero';
 
 import { StrapiImage } from '@/src/models/strapi/shared/image';
 
@@ -64,6 +65,7 @@ export default function CategoriaContent({ categoria, categoriaStrapi }: Props) 
 
   return (
     <>
+      <CategoriaHero categoria={categoria} />
       <section className="container mx-auto px-4 py-10">
         {data?.data.length === 0 ? (
           <p>No hay programas disponibles.</p>
