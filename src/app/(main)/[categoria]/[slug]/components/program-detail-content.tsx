@@ -8,8 +8,18 @@ import { Calendar, HandCoins, CheckCircle2, XCircle } from 'lucide-react';
 import { TabsDemo } from '@/components/tabs-demo';
 
 const months = [
-  'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
-  'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre',
+  'enero',
+  'febrero',
+  'marzo',
+  'abril',
+  'mayo',
+  'junio',
+  'julio',
+  'agosto',
+  'septiembre',
+  'octubre',
+  'noviembre',
+  'diciembre',
 ];
 
 function formatDate(dateString: string): string {
@@ -62,16 +72,10 @@ export default function ProgramDetailContent({ categoria, slug }: Props) {
       <section className="relative">
         <div className="relative h-72 md:h-96">
           <div className="absolute inset-0 z-10 bg-black/50" />
-          <img
-            src={program.image.url}
-            alt={program.name}
-            className="h-full w-full object-cover"
-          />
+          <img src={program.image.url} alt={program.name} className="h-full w-full object-cover" />
           <div className="absolute inset-0 z-20 flex items-end p-6 md:p-12">
             <div>
-              <h1 className="text-3xl font-bold text-white md:text-5xl">
-                {program.name}
-              </h1>
+              <h1 className="text-3xl font-bold text-white md:text-5xl">{program.name}</h1>
               <p className="mt-2 text-lg text-white/80">{program.program_type?.name}</p>
             </div>
           </div>
@@ -82,10 +86,10 @@ export default function ProgramDetailContent({ categoria, slug }: Props) {
         <div className="grid gap-8 md:grid-cols-3">
           <div className="md:col-span-2">
             <h2 className="mb-4 text-2xl font-semibold">Descripción</h2>
-            <p className="text-gray-700 leading-relaxed dark:text-gray-300">
+            <p className="leading-relaxed text-gray-700 dark:text-gray-300">
               {program.description}
             </p>
-            <TabsDemo/>
+            <TabsDemo />
           </div>
 
           <aside className="space-y-6">
@@ -121,12 +125,7 @@ export default function ProgramDetailContent({ categoria, slug }: Props) {
               </div>
             </div>
 
-            <Button
-              href={`/${categoria}`}
-              variant="outline"
-              fullWidth
-              arrow
-            >
+            <Button href={`/${categoria}`} variant="outline" fullWidth arrow>
               Volver a {categoria}
             </Button>
           </aside>

@@ -47,7 +47,7 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="bg-white w-full rounded-2xl p-6 shadow-2xl md:p-8">
+    <div className="w-full rounded-2xl bg-white p-6 shadow-2xl md:p-8">
       <h2 className="font-merriweather text-primary mb-1 text-center text-2xl font-bold">
         ¡Regístrate ya!
       </h2>
@@ -169,7 +169,7 @@ export default function RegisterForm() {
               onClick={() => setBachelor('si')}
               className={`rounded-xl px-6 py-2 text-sm font-semibold transition-colors ${
                 bachelor === 'si'
-                  ? 'bg-primary text-back'
+                  ? 'bg-primary text-back text-white'
                   : 'text-fonts bg-gray-100 hover:bg-gray-200'
               }`}
             >
@@ -180,7 +180,7 @@ export default function RegisterForm() {
               onClick={() => setBachelor('no')}
               className={`rounded-xl px-6 py-2 text-sm font-semibold transition-colors ${
                 bachelor === 'no'
-                  ? 'bg-primary text-back'
+                  ? 'bg-primary text-back text-white'
                   : 'text-fonts bg-gray-100 hover:bg-gray-200'
               }`}
             >
@@ -210,7 +210,7 @@ export default function RegisterForm() {
         {/* Submit */}
         <button
           type="submit"
-          className="bg-primary text-back hover:bg-primary/90 mt-1 w-full rounded-xl py-3 text-sm font-bold transition-colors"
+          className="bg-primary text-back hover:bg-primary/90 mt-1 w-full rounded-xl py-3 text-sm font-bold text-white transition-colors"
         >
           Enviar datos
         </button>

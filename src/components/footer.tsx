@@ -75,7 +75,7 @@ export default function Footer() {
             <div className="space-y-3">
               {contactInfo.map((item, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <span className="text-sm font-semibold text-secondary">{item.label}:</span>
+                  <span className="text-secondary text-sm font-semibold">{item.label}:</span>
                   <span className="text-sm text-white/80">{item.text}</span>
                 </div>
               ))}
@@ -90,7 +90,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-sm text-white/80 transition-colors hover:text-secondary"
+                    className="hover:text-secondary text-sm text-white/80 transition-colors"
                   >
                     {link.name}
                   </a>
@@ -107,7 +107,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-sm text-white/80 transition-colors hover:text-secondary"
+                    className="hover:text-secondary text-sm text-white/80 transition-colors"
                   >
                     {link.name}
                   </a>
@@ -124,7 +124,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-sm text-white/80 transition-colors hover:text-secondary"
+                    className="hover:text-secondary text-sm text-white/80 transition-colors"
                   >
                     {link.name}
                   </a>
@@ -141,7 +141,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-sm text-white/80 transition-colors hover:text-secondary"
+                    className="hover:text-secondary text-sm text-white/80 transition-colors"
                   >
                     {link.name}
                   </a>
@@ -165,7 +165,7 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-sm font-semibold transition-colors hover:bg-secondary"
+                    className="hover:bg-secondary flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-sm font-semibold transition-colors"
                     aria-label={social.label}
                   >
                     {social.name.charAt(0)}
@@ -189,10 +189,13 @@ export default function Footer() {
       </div>
 
       {/* Copyright Bar */}
-      <div className="border-t border-white/20 bg-primary/80">
+      <div className="bg-primary/80 border-t border-white/20">
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col items-center justify-between gap-2 text-center text-xs text-white/70 md:flex-row md:text-left">
-            <p>© {new Date().getFullYear()} Escuela de Posgrado UNSAAC. Todos los derechos reservados.</p>
+            <p>
+              © {new Date().getFullYear()} Escuela de Posgrado UNSAAC. Todos los derechos
+              reservados.
+            </p>
             <div className="flex gap-4">
               <a href="/politica-privacidad" className="hover:text-secondary transition-colors">
                 Política de Privacidad

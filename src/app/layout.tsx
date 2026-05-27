@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Merriweather, Geist } from 'next/font/google';
-import '@/src/app/globals.css'
+import '@/src/app/globals.css';
 import { cn } from '@/lib/utils';
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
@@ -27,9 +27,7 @@ export default function RootLayout({
       lang="en"
       className={cn('h-full', 'antialiased', merriweather.variable, 'font-sans', geist.variable)}
     >
-      <body className="font-merriweather text-fonts flex min-h-full flex-col">
-        {children}
-      </body>
+      <body className="font-merriweather text-fonts flex min-h-full flex-col">{children}</body>
     </html>
   );
 }
