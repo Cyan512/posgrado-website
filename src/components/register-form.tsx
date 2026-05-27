@@ -47,7 +47,7 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="bg-back w-full rounded-2xl p-6 shadow-2xl md:p-8">
+    <div className="bg-white w-full rounded-2xl p-6 shadow-2xl md:p-8">
       <h2 className="font-merriweather text-primary mb-1 text-center text-2xl font-bold">
         ¡Regístrate ya!
       </h2>
