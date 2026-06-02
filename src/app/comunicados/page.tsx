@@ -22,7 +22,7 @@ export default async function ComunicadosPage() {
               {comunicados.map((com) => (
                 <Link
                   key={com.id}
-                  href={`/comunicado/${com.slug}`}
+                  href={`/comunicados/${com.slug}`}
                   className="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
                 >
                   {com.imagen && (
