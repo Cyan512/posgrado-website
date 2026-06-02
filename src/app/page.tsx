@@ -2,8 +2,10 @@ import Link from "next/link"
 import Image from "next/image"
 import { getTipoProgramas } from "@/lib/repositories/tipos"
 import { getComunicados } from "@/lib/repositories/comunicados"
-import { GridCard } from "@/components/ui/GridCard"
+import { GridCard } from "@/components/ui-test/GridCard"
 import { LatestComunicadoModal } from "@/features/comunicados/LatestComunicadoModal"
+import { ComunicadoCard } from "@/components/comunicado-card"
+import React from "react"
 
 export default async function Home() {
   const [tipos, comunicados] = await Promise.all([
@@ -74,16 +76,13 @@ export default async function Home() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {comunicados.slice(0, 3).map((com) => (
-                <Link
+                <ComunicadoCard
                   key={com.id}
                   href={`/comunicados/${com.slug}`}
-                  className="block bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
-                >
-                  <p className="text-sm text-gray-500 mb-2">
-                    {new Date(com.fecha).toLocaleDateString("es-PE")}
-                  </p>
-                  <h3 className="font-semibold text-gray-900 line-clamp-2">{com.titulo}</h3>
-                </Link>
+                  imagen={com.imagen?.url}
+                  titulo={com.titulo}
+                  fecha={com.fecha}
+                />
               ))}
             </div>
           </div>

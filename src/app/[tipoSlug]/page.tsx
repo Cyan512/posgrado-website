@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import { getTipoProgramaBySlug, getTipoProgramas } from "@/lib/repositories/tipos"
-import { Hero } from "@/components/ui/Hero"
+import { Hero } from "@/components/ui-test/Hero"
 import { TipoProgramaFilter } from "@/features/programas/TipoProgramaFilter"
 
 interface Props {

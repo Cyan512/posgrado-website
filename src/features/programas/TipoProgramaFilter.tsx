@@ -2,9 +2,9 @@
 
 import { useState } from "react"
 import type { Programa } from "@/lib/types"
-import { Filter } from "@/components/ui/Filter"
-import { GridCard } from "@/components/ui/GridCard"
-import { CardProgram } from "@/components/ui/CardProgram"
+import { Filter } from "@/components/ui-test/Filter"
+import { GridCard } from "@/components/ui-test/GridCard"
+import { CardProgram } from "@/components/ui-test/CardProgram"
 
 interface Props {
   programas: Programa[]
