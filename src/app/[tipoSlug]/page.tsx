@@ -1,10 +1,26 @@
 import { notFound } from "next/navigation"
-import { getTipoProgramaBySlug } from "@/lib/strapi"
-import Hero from "@/components/Hero"
-import TipoProgramaFilter from "./filter"
+import type { Metadata } from "next"
+import { getTipoProgramaBySlug, getTipoProgramas } from "@/lib/repositories/tipos"
+import { Hero } from "@/components/ui/Hero"
+import { TipoProgramaFilter } from "@/features/programas/TipoProgramaFilter"
 
 interface Props {
   params: Promise<{ tipoSlug: string }>
+}
+
+export async function generateStaticParams() {
+  const tipos = await getTipoProgramas()
+  return tipos.map((tipo) => ({ tipoSlug: tipo.slug }))
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { tipoSlug } = await params
+  const tipo = await getTipoProgramaBySlug(tipoSlug)
+  if (!tipo) return {}
+  return {
+    title: tipo.nombre,
+    description: `Programas de ${tipo.nombre} en la Escuela de Posgrado UNSAAC`,
+  }
 }
 
 export default async function TipoProgramaPage({ params }: Props) {

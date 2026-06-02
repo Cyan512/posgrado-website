@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react"
 import { useRouter } from "next/navigation"
-import type { SearchItem } from "@/app/api/search/route"
+import type { SearchItem } from "./search-types"
 
 const typeLabels: Record<SearchItem["type"], string> = {
   tipo: "Tipo de Programa",
@@ -10,7 +10,7 @@ const typeLabels: Record<SearchItem["type"], string> = {
   comunicado: "Comunicado",
 }
 
-export default function SearchBar() {
+export function SearchBar() {
   const [open, setOpen] = useState(false)
   const [query, setQuery] = useState("")
   const [items, setItems] = useState<SearchItem[]>([])
@@ -91,7 +91,7 @@ export default function SearchBar() {
       <button
         onClick={() => setOpen(true)}
         className="p-2 text-gray-700 hover:text-gray-900"
-        aria-label="Buscar"
+        aria-label="Abrir búsqueda"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -100,6 +100,7 @@ export default function SearchBar() {
           stroke="currentColor"
           strokeWidth={2}
           className="w-5 h-5"
+          aria-hidden="true"
         >
           <circle cx="11" cy="11" r="8" />
           <path d="m21 21-4.35-4.35" />
@@ -107,7 +108,12 @@ export default function SearchBar() {
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 bg-black/40">
+        <div
+          className="fixed inset-0 z-50 flex items-start justify-center pt-20 bg-black/40"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Búsqueda"
+        >
           <div className="w-full max-w-xl bg-white rounded-lg shadow-2xl overflow-hidden">
             <div className="flex items-center gap-3 px-4 border-b">
               <svg
@@ -117,6 +123,7 @@ export default function SearchBar() {
                 stroke="currentColor"
                 strokeWidth={2}
                 className="w-5 h-5 text-gray-400 shrink-0"
+                aria-hidden="true"
               >
                 <circle cx="11" cy="11" r="8" />
                 <path d="m21 21-4.35-4.35" />
@@ -128,6 +135,7 @@ export default function SearchBar() {
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Buscar programas, comunicados..."
                 className="flex-1 py-4 outline-none text-gray-900 placeholder:text-gray-400"
+                aria-label="Buscar"
               />
               <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-1 text-xs text-gray-400 bg-gray-100 rounded">
                 ESC
@@ -136,7 +144,9 @@ export default function SearchBar() {
 
             <div className="max-h-96 overflow-y-auto">
               {loading ? (
-                <div className="p-6 text-center text-gray-500">Cargando...</div>
+                <div className="p-6 text-center text-gray-500" role="status">
+                  <span>Cargando...</span>
+                </div>
               ) : Object.keys(grouped).length === 0 ? (
                 <div className="p-6 text-center text-gray-500">
                   {q ? "Sin resultados" : "Cargando datos..."}

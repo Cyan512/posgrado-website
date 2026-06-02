@@ -1,11 +1,14 @@
 import Link from "next/link"
 import Image from "next/image"
-import { getTipoProgramas, getComunicados } from "@/lib/strapi"
-import GridCard from "@/components/GridCard"
+import { getTipoProgramas } from "@/lib/repositories/tipos"
+import { getComunicados } from "@/lib/repositories/comunicados"
+import { GridCard } from "@/components/ui/GridCard"
 
 export default async function Home() {
-  const tipos = await getTipoProgramas()
-  const comunicados = await getComunicados()
+  const [tipos, comunicados] = await Promise.all([
+    getTipoProgramas(),
+    getComunicados(),
+  ])
 
   return (
     <>
@@ -69,7 +72,7 @@ export default async function Home() {
               {comunicados.slice(0, 3).map((com) => (
                 <Link
                   key={com.id}
-                  href={`/comunicados`}
+                  href={`/comunicados/${com.slug}`}
                   className="block bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
                 >
                   <p className="text-sm text-gray-500 mb-2">

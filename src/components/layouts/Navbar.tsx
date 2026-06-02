@@ -1,12 +1,12 @@
 import Link from "next/link"
-import { getTipoProgramas } from "@/lib/strapi"
-import SearchBar from "./SearchBar"
+import { getTipoProgramas } from "@/lib/repositories/tipos"
+import { SearchBar } from "@/features/search/SearchBar"
 
-export default async function Navbar() {
+export async function Navbar() {
   const tipos = await getTipoProgramas()
 
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-white shadow-md" role="navigation" aria-label="Navegación principal">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
         <Link href="/" className="text-xl font-bold text-gray-900">
           Posgrado UNSAAC

@@ -1,9 +1,30 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { getProgramaBySlug } from "@/lib/strapi"
+import type { Metadata } from "next"
+import { getProgramaBySlug, getProgramas } from "@/lib/repositories/programas"
 
 interface Props {
   params: Promise<{ tipoSlug: string; programaSlug: string }>
+}
+
+export async function generateStaticParams() {
+  const programas = await getProgramas()
+  return programas
+    .filter((p) => p.tipo_programa?.slug)
+    .map((p) => ({
+      tipoSlug: p.tipo_programa!.slug,
+      programaSlug: p.slug,
+    }))
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { programaSlug } = await params
+  const programa = await getProgramaBySlug(programaSlug)
+  if (!programa) return {}
+  return {
+    title: programa.nombre,
+    description: programa.descripcion ?? `Información sobre ${programa.nombre}`,
+  }
 }
 
 export default async function ProgramaPage({ params }: Props) {

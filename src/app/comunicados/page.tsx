@@ -1,6 +1,12 @@
 import Link from "next/link"
 import Image from "next/image"
-import { getComunicados } from "@/lib/strapi"
+import type { Metadata } from "next"
+import { getComunicados } from "@/lib/repositories/comunicados"
+
+export const metadata: Metadata = {
+  title: "Comunicados",
+  description: "Comunicados oficiales de la Escuela de Posgrado UNSAAC",
+}
 
 export default async function ComunicadosPage() {
   const comunicados = await getComunicados()
@@ -16,7 +22,7 @@ export default async function ComunicadosPage() {
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4">
           {comunicados.length === 0 ? (
-            <p className="text-center text-gray-500">No hay comunicados disponibles.</p>
+            <p className="text-center text-gray-500" role="status">No hay comunicados disponibles.</p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {comunicados.map((com) => (

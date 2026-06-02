@@ -1,13 +1,33 @@
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { getComunicadoBySlug } from "@/lib/strapi"
+import type { Metadata } from "next"
+import { getComunicadoBySlug, getComunicados } from "@/lib/repositories/comunicados"
 
-export default async function ComunicadoPage({
-  params,
-}: {
+interface Props {
   params: Promise<{ slug: string }>
-}) {
+}
+
+export async function generateStaticParams() {
+  const comunicados = await getComunicados()
+  return comunicados.map((c) => ({ slug: c.slug }))
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params
+  const comunicado = await getComunicadoBySlug(slug)
+  if (!comunicado) return {}
+  return {
+    title: comunicado.titulo,
+    description: `Comunicado: ${comunicado.titulo}`,
+    openGraph: {
+      title: comunicado.titulo,
+      images: comunicado.imagen ? [{ url: comunicado.imagen.url }] : [],
+    },
+  }
+}
+
+export default async function ComunicadoPage({ params }: Props) {
   const { slug } = await params
   const comunicado = await getComunicadoBySlug(slug)
 

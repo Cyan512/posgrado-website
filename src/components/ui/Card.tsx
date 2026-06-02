@@ -4,16 +4,16 @@ import type { StrapiImage } from "@/lib/types"
 
 interface CardProps {
   title: string
-  slug: string
   image: StrapiImage | null
   href: string
 }
 
-export default function Card({ title, slug, image, href }: CardProps) {
+export function Card({ title, image, href }: CardProps) {
   return (
     <Link
       href={href}
       className="group block rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+      aria-label={title}
     >
       <div className="relative h-48 w-full">
         {image ? (
