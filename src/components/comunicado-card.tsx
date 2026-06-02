@@ -2,8 +2,6 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
   Card,
-  CardAction,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -19,25 +17,23 @@ interface Props {
 
 export function ComunicadoCard({ href, imagen, titulo, fecha }: Props) {
   return (
-    <Card className="relative mx-auto w-full max-w-sm pt-0">
+    <Card className="relative mx-auto w-full max-w-sm p-4 gap-4">
       <div className="absolute inset-0 z-30 aspect-video" />
       <img
         src={imagen}
         alt="Event cover"
         className="relative z-20 aspect-video w-full object-cover"
       />
-      <CardHeader>
-        <CardAction>
-          <Badge variant="secondary">
-            {fecha}
-          </Badge>
-        </CardAction>
+      <CardHeader className="p-0">
+        <Badge variant="secondary" className="mb-2 w-fit">
+          {fecha}
+        </Badge>
         <CardTitle className="normal-case">
           {titulo}
         </CardTitle>
       </CardHeader>
-      <CardFooter>
-        <Button className="w-full" asChild>
+      <CardFooter className="p-0">
+        <Button asChild>
           <Link href={href}>
             Leer Más
           </Link>

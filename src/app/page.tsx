@@ -5,7 +5,11 @@ import { getComunicados } from "@/lib/repositories/comunicados"
 import { GridCard } from "@/components/ui-test/GridCard"
 import { LatestComunicadoModal } from "@/features/comunicados/LatestComunicadoModal"
 import { ComunicadoCard } from "@/components/comunicado-card"
-import React from "react"
+
+
+
+
+
 
 export default async function Home() {
   const [tipos, comunicados] = await Promise.all([
