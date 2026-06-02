@@ -1,7 +1,7 @@
-import Link from "next/link"
-import Image from "next/image"
 import type { Metadata } from "next"
 import { getComunicados } from "@/lib/repositories/comunicados"
+import { ComunicadoCard } from "@/components/comunicado-card"
+import { ROUTES } from "@/lib/constants/routes"
 
 export const metadata: Metadata = {
   title: "Comunicados",
@@ -26,29 +26,13 @@ export default async function ComunicadosPage() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {comunicados.map((com) => (
-                <Link
+                <ComunicadoCard
                   key={com.id}
-                  href={`/comunicados/${com.slug}`}
-                  className="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
-                >
-                  {com.imagen && (
-                    <div className="relative h-48 w-full">
-                      <Image
-                        src={com.imagen.url}
-                        alt={com.imagen.alternativeText ?? com.titulo}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover"
-                      />
-                    </div>
-                  )}
-                  <div className="p-4">
-                    <p className="text-sm text-gray-500 mb-2">
-                      {new Date(com.fecha).toLocaleDateString("es-PE")}
-                    </p>
-                    <h2 className="font-semibold text-gray-900">{com.titulo}</h2>
-                  </div>
-                </Link>
+                  href={`${ROUTES.COMUNICADOS}/${com.slug}`}
+                  imagen={com.imagen?.url}
+                  titulo={com.titulo}
+                  fecha={com.fecha}
+                />
               ))}
             </div>
           )}

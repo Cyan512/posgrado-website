@@ -5,11 +5,14 @@ import { getComunicados } from "@/lib/repositories/comunicados"
 import { GridCard } from "@/components/ui-test/GridCard"
 import { LatestComunicadoModal } from "@/features/comunicados/LatestComunicadoModal"
 import { ComunicadoCard } from "@/components/comunicado-card"
-
-
-
-
-
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel"
+import { Button } from "@/components/ui/button"
+import { ROUTES } from "@/lib/constants/routes"
+import { ArrowRight } from "lucide-react"
 
 export default async function Home() {
   const [tipos, comunicados] = await Promise.all([
@@ -73,21 +76,42 @@ export default async function Home() {
       </section>
 
       {comunicados.length > 0 && (
-        <section className="bg-gray-50 py-16">
-          <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Últimos Comunicados
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {comunicados.slice(0, 3).map((com) => (
-                <ComunicadoCard
-                  key={com.id}
-                  href={`/comunicados/${com.slug}`}
-                  imagen={com.imagen?.url}
-                  titulo={com.titulo}
-                  fecha={com.fecha}
-                />
-              ))}
+        <section className="pt-12 md:pt-20">
+          <div className="container mx-auto px-4">
+            <div className="mb-8 flex gap-4 flex-col sm:flex-row items-center sm:justify-between">
+              <h2 className="font-bold uppercase tracking-wider text-2xl md:text-3xl">
+                Comunicados
+              </h2>
+              <Button variant="outline" className="items-center gap-2 hidden sm:flex" asChild>
+                <Link href={ROUTES.COMUNICADOS} className="flex items-center gap-2">
+                  Ver todos
+                  <ArrowRight />
+                </Link>
+              </Button>
+            </div>
+            <Carousel className="w-full">
+              <CarouselContent className="-ml-1">
+                {comunicados.map((com, index) => (
+                  <CarouselItem key={index} className="basis-1/2 pl-1 lg:basis-1/3">
+                    <div className="p-1">
+                      <ComunicadoCard
+                        href={`${ROUTES.COMUNICADOS}/${com.slug}`}
+                        imagen={com.imagen?.url}
+                        titulo={com.titulo}
+                        fecha={com.fecha}
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+            <div className="mt-8 flex justify-center sm:hidden">
+              <Button variant="outline" className="flex items-center gap-2" asChild>
+                <Link href={ROUTES.COMUNICADOS} className="flex items-center gap-2">
+                  Ver todos
+                  <ArrowRight />
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
