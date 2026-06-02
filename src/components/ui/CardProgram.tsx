@@ -8,7 +8,7 @@ interface CardProps {
   href: string
 }
 
-export function Card({ title, image, href }: CardProps) {
+export function CardProgram({ title, image, href }: CardProps) {
   return (
     <Link
       href={href}

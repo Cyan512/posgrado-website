@@ -4,7 +4,7 @@ import { useState } from "react"
 import type { Programa } from "@/lib/types"
 import { Filter } from "@/components/ui/Filter"
 import { GridCard } from "@/components/ui/GridCard"
-import { Card } from "@/components/ui/Card"
+import { CardProgram } from "@/components/ui/CardProgram"
 
 interface Props {
   programas: Programa[]
@@ -26,7 +26,7 @@ export function TipoProgramaFilter({ programas, tipoSlug }: Props) {
       ) : (
         <GridCard>
           {filtered.map((prog) => (
-            <Card
+            <CardProgram
               key={prog.id}
               title={prog.nombre}
               image={null}
