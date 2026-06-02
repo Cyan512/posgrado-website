@@ -9,10 +9,14 @@ interface Props {
   comunicado: Comunicado
 }
 
+const SS_KEY = "seen-comunicado-modal"
+
 export function LatestComunicadoModal({ comunicado }: Props) {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
+    if (sessionStorage.getItem(SS_KEY)) return
+    sessionStorage.setItem(SS_KEY, "true")
     setOpen(true)
   }, [])
 
