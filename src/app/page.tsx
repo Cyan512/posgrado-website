@@ -38,6 +38,7 @@ export default async function Home() {
                       src={tipo.imagen_card.formats?.medium?.url ?? tipo.imagen_card.url}
                       alt={tipo.imagen_card.alternativeText ?? tipo.nombre}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform"
                     />
                   ) : (

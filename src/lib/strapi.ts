@@ -49,3 +49,8 @@ export async function getComunicados(): Promise<Comunicado[]> {
   const res = await fetchAPI<StrapiCollection<Comunicado>>("/comunicados?populate[imagen]=true&sort[fecha]=desc")
   return res.data
 }
+
+export async function getComunicadoBySlug(slug: string): Promise<Comunicado | null> {
+  const res = await fetchAPI<StrapiCollection<Comunicado>>(`/comunicados?filters[slug][$eq]=${slug}&populate[imagen]=true`)
+  return res.data[0] || null
+}
