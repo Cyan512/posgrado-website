@@ -126,4 +126,18 @@
   html {
     @apply font-sans;
     }
+    
+  /* Ocultar scrollbar en todos los navegadores */
+  html,
+  body {
+    overflow-x: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE y Edge */
+  }
+  
+  /* Chrome, Safari y Opera */
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
 }
