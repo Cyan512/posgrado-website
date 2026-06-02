@@ -3,6 +3,7 @@ import Image from "next/image"
 import { getTipoProgramas } from "@/lib/repositories/tipos"
 import { getComunicados } from "@/lib/repositories/comunicados"
 import { GridCard } from "@/components/ui/GridCard"
+import { LatestComunicadoModal } from "@/features/comunicados/LatestComunicadoModal"
 
 export default async function Home() {
   const [tipos, comunicados] = await Promise.all([
@@ -10,8 +11,11 @@ export default async function Home() {
     getComunicados(),
   ])
 
+  const latestComunicado = comunicados[0] ?? null
+
   return (
     <>
+      {latestComunicado && <LatestComunicadoModal comunicado={latestComunicado} />}
       <section className="bg-blue-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
