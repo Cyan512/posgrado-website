@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { getTipoProgramas } from "@/lib/strapi"
+import SearchBar from "./SearchBar"
 
 export default async function Navbar() {
   const tipos = await getTipoProgramas()
@@ -10,7 +11,7 @@ export default async function Navbar() {
         <Link href="/" className="text-xl font-bold text-gray-900">
           Posgrado UNSAAC
         </Link>
-        <div className="flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-6">
           <Link href="/" className="text-gray-700 hover:text-gray-900">
             Inicio
           </Link>
@@ -26,6 +27,9 @@ export default async function Navbar() {
           <Link href="/comunicados" className="text-gray-700 hover:text-gray-900">
             Comunicados
           </Link>
+        </div>
+        <div className="flex items-center gap-2">
+          <SearchBar />
         </div>
       </div>
     </nav>

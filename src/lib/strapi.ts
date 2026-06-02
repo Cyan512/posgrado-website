@@ -18,7 +18,7 @@ async function fetchAPI<T>(endpoint: string, options?: RequestInit): Promise<T> 
       Authorization: `Bearer ${STRAPI_TOKEN}`,
       "Content-Type": "application/json",
     },
-    next: { revalidate: 60 },
+    next: { revalidate: 3600 },
     ...options,
   })
   if (!res.ok) throw new Error(`Strapi fetch error: ${res.status} ${res.statusText}`)
