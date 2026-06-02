@@ -1,21 +1,11 @@
 import Link from "next/link"
 import { getTipoProgramas } from "@/lib/repositories/tipos"
 import { SearchBar } from "@/features/search/SearchBar"
+import { ROUTES } from "@/lib/constants/routes"
+import { Menu } from "lucide-react"
 
-export async function Navbar() {
-  const tipos = await getTipoProgramas()
-
-  return (
-    <nav className="bg-white shadow-md" role="navigation" aria-label="Navegación principal">
-      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
-        <Link href="/" className="text-xl font-bold text-gray-900">
-          Posgrado UNSAAC
-        </Link>
-        <div className="hidden md:flex items-center gap-6">
-          <Link href="/" className="text-gray-700 hover:text-gray-900">
-            Inicio
-          </Link>
-          {tipos.map((tipo) => (
+/*
+{tipos.map((tipo) => (
             <Link
               key={tipo.id}
               href={`/${tipo.slug}`}
@@ -24,13 +14,22 @@ export async function Navbar() {
               {tipo.nombre}
             </Link>
           ))}
-          <Link href="/comunicados" className="text-gray-700 hover:text-gray-900">
-            Comunicados
-          </Link>
-        </div>
-        <div className="flex items-center gap-2">
-          <SearchBar />
-        </div>
+
+*/
+
+export async function Navbar() {
+  const tipos = await getTipoProgramas()
+
+  return (
+    <nav >
+      <div>
+        <button>
+          <Menu />
+        </button>
+        <Link href={ROUTES.INICIO}>
+          <img src="/images/logos/logo-postgrado.svg" alt="logo posgrado" />
+        </Link>
+        <SearchBar />
       </div>
     </nav>
   )
