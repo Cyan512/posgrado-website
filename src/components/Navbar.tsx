@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { SearchBar } from '@/features/search/SearchBar';
 
 const panel1Links = [
   { num: '01', label: 'Inicio', href: '/' },
@@ -27,7 +28,7 @@ function NavLink({ num, label, href, onClick }: { num: string; label: string; hr
       >
         <div className="flex items-center gap-3">
           <span className="text-[9px] tracking-[1.5px] text-white/25 min-w-[20px]">{num}</span>
-          <span className="font-serif text-[28px] font-light text-white leading-none group-hover:text-white/40 transition-colors duration-200">
+          <span className="font-serif text-[2 8px] font-light text-white leading-none group-hover:text-white/40 transition-colors duration-200">
             {label}
           </span>
         </div>
@@ -53,7 +54,18 @@ export function Navbar() {
     <>
       {/* ── Barra superior ── */}
       <nav className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 md:px-8 h-16 bg-[#f0ede8] border-b border-black/[0.08]">
-        <Link href="/" className="flex items-center">
+               <button
+          onClick={() => setOpen(!open)}
+          aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={open}
+          className="flex items-center gap-2.5"
+        >
+          <div className="relative w-[22px] h-[10px]">
+            <span className={`absolute top-0 left-0 h-px bg-gray-800 transition-all duration-[400ms] ease-[cubic-bezier(0.77,0,0.18,1)] ${open ? 'w-5 translate-y-[5px] rotate-45' : 'w-[22px]'}`} />
+            <span className={`absolute bottom-0 left-0 h-px bg-gray-800 transition-all duration-[400ms] ease-[cubic-bezier(0.77,0,0.18,1)] ${open ? 'w-5 -rotate-45' : 'w-[14px]'}`} />
+          </div>
+        </button>
+         <Link href="/" className="flex items-center">
           <Image
             src="/images/logos/logo-postgrado.svg"
             alt="Escuela de Posgrado UNSAAC"
@@ -64,21 +76,7 @@ export function Navbar() {
             unoptimized
           />
         </Link>
-
-        <button
-          onClick={() => setOpen(!open)}
-          aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
-          aria-expanded={open}
-          className="flex items-center gap-2.5"
-        >
-          <span className={`text-[11px] font-medium tracking-[1.5px] uppercase text-gray-800 transition-opacity duration-300 ${open ? 'opacity-0' : 'opacity-100'}`}>
-            Menú
-          </span>
-          <div className="relative w-[22px] h-[10px]">
-            <span className={`absolute top-0 left-0 h-px bg-gray-800 transition-all duration-[400ms] ease-[cubic-bezier(0.77,0,0.18,1)] ${open ? 'w-5 translate-y-[5px] rotate-45' : 'w-[22px]'}`} />
-            <span className={`absolute bottom-0 left-0 h-px bg-gray-800 transition-all duration-[400ms] ease-[cubic-bezier(0.77,0,0.18,1)] ${open ? 'w-5 -rotate-45' : 'w-[14px]'}`} />
-          </div>
-        </button>
+        <SearchBar/>
       </nav>
 
       {/* ── Overlay pantalla completa ── */}
