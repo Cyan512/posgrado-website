@@ -16,6 +16,7 @@ export default async function Home() {
   return (
     <>
       {latestComunicado && <LatestComunicadoModal comunicado={latestComunicado} />}
+      
       <Hero tipos={tipos} />
       <Programs tipos={tipos} />
       {comunicados.length > 0 && (
