@@ -5,19 +5,18 @@ interface HeroProps {
 }
 
 export default function Hero({ tipos }: HeroProps) {
+  const dataInfo = {
+    image: "",
+    badge: "ADMISIÓN 2026 ABIERTA",
+    title: "Liderazgo Académico con Prestigio Internacional.",
+    description: "Formamos investigadores y líderes que transforman la sociedad. Descubre nuestros programas de Maestría, Doctorado y Especialización.",
+  }
   return (
-    <section className="bg-blue-900 text-white py-20">
-      <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-8">
-        <div className="flex-1 text-center lg:text-left">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Escuela de Posgrado UNSAAC
-          </h1>
-          <p className="text-xl text-blue-200 max-w-2xl">
-            Formación académica de excelencia para profesionales del futuro
-          </p>
-        </div>
-        <FormProgram tipos={tipos} />
-      </div>
+    <section>
+      {dataInfo.badge}
+      {dataInfo.title}
+      {dataInfo.description}
+      <FormProgram tipos={tipos} />
     </section>
   )
 }
