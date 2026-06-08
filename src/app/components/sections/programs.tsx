@@ -64,14 +64,13 @@ export default function Programs({ tipos }: Props) {
                   {tipo.nombre}
                 </h3>
 
-                <Link
-                  href={`/${tipo.slug}`}
-                  className="inline-flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase text-white/90 hover:text-white transition-colors group/link"
+                <span
+                  className="inline-flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase text-white/90 transition-colors"
                   style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
                 >
                   Explorar Programas
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:translate-x-1" style={{ transform: 'rotate(90deg)' }} />
-                </Link>
+                  <ArrowRight className="w-3.5 h-3.5" style={{ transform: 'rotate(90deg)' }} />
+                </span>
               </div>
             </div>
           </Link>

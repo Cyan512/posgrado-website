@@ -39,20 +39,22 @@ export default function Announcements({ comunicados }: Props) {
           <CarouselContent className="-ml-4">
             {comunicados.map((com, index) => (
 
-              <Link href={`${ROUTES.COMUNICADOS}/${com.slug}`}>
+              <Link key={index} href={`${ROUTES.COMUNICADOS}/${com.slug}`}>
                 <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                   <Card className="border-none bg-transparent shadow-none group">
                     <CardContent className="p-0">
                       {/* Imagen de Noticia */}
-                      <div className="relative overflow-hidden rounded-xl shadow-md aspect-[16/10] w-full mb-5">
-                        <Image
-                          src={com.imagen.url}
-                          alt={com.titulo}
-                          fill
-                          className="object-cover transition-transform duration-300 group-hover:scale-105"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        />
-                      </div>
+                      {com.imagen && (
+                        <div className="relative overflow-hidden rounded-xl shadow-md aspect-[16/10] w-full mb-5">
+                          <Image
+                            src={com.imagen.url}
+                            alt={com.titulo}
+                            fill
+                            className="object-cover transition-transform duration-300 group-hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          />
+                        </div>
+                      )}
 
                       {/* Metadatos */}
                       <div className="flex items-center gap-3 mb-3">
