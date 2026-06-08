@@ -3,10 +3,15 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/layouts/Footer";
 import { SkipToContent } from "@/components/layouts/SkipToContent";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Merriweather } from "next/font/google";
 import { cn } from "@/lib/utils";
+import Header from "@/components/layouts/Header";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const merriweather = Merriweather({
+  subsets: ["latin"],
+  weight: ["300", "400", "700", "900"],
+  variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -29,11 +34,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={cn("h-full antialiased", "font-sans", inter.variable)}>
+    <html
+      lang="es"
+      className={cn(
+        "h-full antialiased",
+        "font-sans",
+        merriweather.variable
+      )}>
       <body className="min-h-full flex flex-col">
         <SkipToContent />
-        <Navbar />
-        <main id="main-content" className="flex-1">{children}</main>
+        <Header/>
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

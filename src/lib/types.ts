@@ -31,6 +31,8 @@ export interface Comunicado {
   fecha: string
   slug: string
   imagen: StrapiImage | null
+  descripcion: string
+  categoria: string
 }
 
 export interface TipoPrograma {

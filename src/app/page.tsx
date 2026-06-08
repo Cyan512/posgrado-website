@@ -4,17 +4,17 @@ import { LatestComunicadoModal } from "@/features/comunicados/LatestComunicadoMo
 import Hero from "@/app/components/sections/hero"
 import Programs from "@/app/components/sections/programs"
 import Announcements from "@/app/components/sections/announcements"
-import About from "@/app/components/sections/about"
+import DirectorsMessage from "@/app/components/sections/DirectorsMessage"
 import AdmissionProcess from "@/app/components/sections/admission-process"
-import Banner from "@/app/components/sections/banner"
-import StudentInformation from "@/app/components/sections/student-information"
+import ImpactCTA from "@/app/components/sections/ImpactCTA"
+import StudentServices from "@/app/components/sections/StudentServices"
 
 export default async function Home() {
   const [tipos, comunicados] = await Promise.all([
     getTipoProgramas(),
     getComunicados(),
   ])
-  console.log(tipos)
+  console.log(comunicados)
 
   const latestComunicado = comunicados[0] ?? null
 
@@ -24,14 +24,14 @@ export default async function Home() {
         <LatestComunicadoModal comunicado={latestComunicado} />
       }
       <Hero tipos={tipos} />
-      <About />
+      <DirectorsMessage />
       <AdmissionProcess />
       {comunicados.length > 0 && (
         <Announcements comunicados={comunicados} />
       )}
       <Programs tipos={tipos} />
-      <StudentInformation />
-      <Banner />
+      <StudentServices />
+      <ImpactCTA />
     </>
   )
 }

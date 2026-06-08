@@ -11,7 +11,7 @@ export async function fetchAPI<T>(endpoint: string, options?: RequestInit): Prom
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
-    next: { revalidate: 3600 },
+    next: { revalidate: 0 },
     ...options,
   })
   if (!res.ok) throw new Error(`Strapi fetch error: ${res.status} ${res.statusText}`)
