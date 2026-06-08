@@ -29,9 +29,9 @@ export default async function Home() {
       {comunicados.length > 0 && (
         <Announcements comunicados={comunicados} />
       )}
-      <Banner />
       <Programs tipos={tipos} />
       <StudentInformation />
+      <Banner />
     </>
   )
 }
