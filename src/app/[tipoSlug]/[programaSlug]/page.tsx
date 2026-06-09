@@ -2,6 +2,24 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import { getProgramaBySlug, getProgramas } from "@/lib/repositories/programas"
+import { Button } from "@/components/ui/button"
+import { Calendar, Compass, GraduationCap, Layers } from "lucide-react"
+import Image from "next/image"
+import { Badge } from "@/components/ui/badge"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs"
+import { ProgramaTabs } from "./components/ProgramaTabs"
 
 interface Props {
   params: Promise<{ tipoSlug: string; programaSlug: string }>
@@ -33,32 +51,60 @@ export default async function ProgramaPage({ params }: Props) {
 
   if (!programa) notFound()
 
+  console.log(programa)
+
   return (
     <>
-      <div className="bg-gray-100 border-b">
-        <div className="max-w-7xl mx-auto px-4 py-3 text-sm">
-          <Link href="/" className="text-blue-600 hover:underline">Inicio</Link>
-          <span className="mx-2 text-gray-400">/</span>
-          <Link href={`/${tipoSlug}`} className="text-blue-600 hover:underline capitalize">
-            {tipoSlug.replace(/-/g, " ")}
-          </Link>
-          <span className="mx-2 text-gray-400">/</span>
-          <span className="text-gray-600">{programa.nombre}</span>
+      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={programa.imagen?.url ?? "/placeholder.jpg"}
+            alt="Research Center UNSAAC"
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30" />
         </div>
-      </div>
 
-      <section className="py-12">
-        <div className="max-w-4xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        <div className="relative z-10 max-w-5xl w-full mx-auto px-6 text-white pt-20 space-y-6 ">
+          <Badge className="bg-accent text-accent-foreground text-xs font-bold tracking-widest uppercase rounded-md">
+            {programa.facultad}
+          </Badge>
+
+          <h1 className="text-4xl md:text-5xl font-serif font-bold tracking-tight max-w-3xl leading-tight">
             {programa.nombre}
           </h1>
-          {programa.descripcion ? (
-            <p className="text-gray-700 text-lg leading-relaxed">{programa.descripcion}</p>
-          ) : (
-            <p className="text-gray-500 italic">Sin descripción disponible.</p>
-          )}
+
+          <p className="text-white/80 text-xs md:text-sm max-w-2xl font-light leading-relaxed">
+            {programa.descripcion}
+          </p>
+
+          {/* Fila de Datos Técnicos en Bloques */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-6 border-t border-white/20 max-w-4xl">
+
+            <div className="space-y-1">
+              <span className="text-xs font-bold text-white/50 tracking-widest uppercase block">DURACIÓN</span>
+              <span className="text-sm font-semibold flex items-center gap-2"><Calendar className="w-4 h-4 text-accent" /> {programa.inversion?.n_matricula} Semestres</span>
+            </div>
+            <div className="space-y-1">
+              <span className="text-xs font-bold text-white/50 tracking-widest uppercase block">MODALIDAD</span>
+              <span className="text-sm font-semibold flex items-center gap-2"><Layers className="w-4 h-4 text-accent" /> {programa.modalidad}</span>
+            </div>
+          </div>
+
+          {/* Botones de Acción del Hero */}
+          <div className="flex flex-wrap gap-4 pt-4">
+            <Button className="bg-primary hover:bg-primary/95 text-primary-foreground font-bold text-xs uppercase tracking-widest h-11 px-6 rounded-xl shadow-md">
+              Inscribirse Ahora
+            </Button>
+            <Button variant="outline" className="border-white/40 text-white bg-transparent hover:bg-white/10 font-bold text-xs uppercase tracking-widest h-11 px-6 rounded-xl">
+              Descargar Plan Curricular
+            </Button>
+          </div>
         </div>
       </section>
+      <ProgramaTabs />
     </>
   )
 }

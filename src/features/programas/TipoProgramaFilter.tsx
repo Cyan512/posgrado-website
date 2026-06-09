@@ -3,8 +3,11 @@
 import { useState } from "react"
 import type { Programa } from "@/lib/types"
 import { Filter } from "@/components/ui-test/Filter"
-import { GridCard } from "@/components/ui-test/GridCard"
-import { CardProgram } from "@/components/ui-test/CardProgram"
+import { Badge } from "@/components/ui/badge"
+import { Clock } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import Image from "next/image"
 
 interface Props {
   programas: Programa[]
@@ -26,72 +29,53 @@ export function TipoProgramaFilter({ programas, tipoSlug }: Props) {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {filtered.map((prog) => (
-            <>
-              <div
-                key={prog.id}
-                className="bg-white dark:bg-card rounded-xl overflow-hidden shadow-md border border-border/20 flex flex-col h-full"
-              >
-                {/* Imagen del Programa (Sin padding, bordes superiores redondeados) */}
-                <div className="relative aspect-[16/10] w-full bg-muted">
-                  {/*
-                  <Image
-                    src={prog.}
-                    alt={prog.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  */}
+            <div
+              key={prog.id}
+              className="bg-white dark:bg-card rounded-xl overflow-hidden shadow-md border border-border/20 flex flex-col h-full"
+            >
+              <div className="relative aspect-[16/10] w-full bg-muted">
+
+                <Image
+                  src={prog.imagen?.url ?? "/placeholder.jpg"}
+                  alt={prog.nombre}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+
+              </div>
+              <div className="p-6 flex flex-col flex-grow space-y-4">
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary" className="bg-accent/10 text-accent text-[10px] font-bold uppercase tracking-wider rounded-md">
+                    {prog.facultad}
+                  </Badge>
+                  <Badge variant="secondary" className="bg-muted text-muted-foreground text-[10px] font-bold uppercase tracking-wider rounded-md">
+                    {prog.modalidad}
+                  </Badge>
                 </div>
 
-                {/* Cuerpo de la Tarjeta */}
-                <div className="p-6 flex flex-col flex-grow space-y-4">
-                  {/* Fila de Badges */}
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary" className="bg-accent/10 text-accent text-[10px] font-bold uppercase tracking-wider rounded-md">
-                      {prog.area}
-                    </Badge>
-                    <Badge variant="secondary" className="bg-muted text-muted-foreground text-[10px] font-bold uppercase tracking-wider rounded-md">
-                      {prog.modality}
-                    </Badge>
-                  </div>
+                <h3 className="text-lg font-bold text-primary font-serif leading-snug line-clamp-2 pt-1">
+                  {prog.nombre}
+                </h3>
 
-                  {/* Título del Programa */}
-                  <h3 className="text-lg font-bold text-primary font-serif leading-snug line-clamp-2 pt-1">
-                    {prog.nombre}
-                  </h3>
+                <div className="flex items-center gap-1.5 text-xs text-muted-foreground/90 font-medium">
+                  <Clock className="w-4 h-4 text-primary/60 stroke-[2]" />
+                  <span>{prog.inversion?.n_matricula}</span>
+                </div>
 
-                  {/* Duración con Icono de Reloj */}
-                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground/90 font-medium">
-                    <Clock className="w-4 h-4 text-primary/60 stroke-[2]" />
-                    <span>{prog.duration}</span>
-                  </div>
+                <div className="pt-4 mt-auto">
+                  <Button
+                    variant="outline"
+                    className="w-full h-11 border-accent/40 text-accent hover:bg-accent/10 rounded-xl text-xs font-bold uppercase tracking-widest" asChild
+                  >
 
-                  {/* Botón de Acción Inferior Estilo Outline Fino */}
-                  <div className="pt-4 mt-auto">
-                    <Button
-                      variant="outline"
-                      className="w-full h-11 border-accent/40 text-accent hover:bg-accent/10 rounded-xl text-xs font-bold uppercase tracking-widest"
-                    >
-                      Ver detalles
-                    </Button>
-                  </div>
+                    <Link href={`/${tipoSlug}/${prog.slug}`}>
+                      Ver Detalles
+                    </Link>
+                  </Button>
                 </div>
               </div>
-
-
-
-              {/*
-            
-            <CardProgram
-              key={prog.id}
-              title={prog.nombre}
-              image={null}
-              href={`/${tipoSlug}/${prog.slug}`}
-            />
-            
-            */}
-            </>
+            </div>
           ))}
         </div>
       )}

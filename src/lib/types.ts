@@ -48,11 +48,45 @@ export interface TipoPrograma {
 export interface Programa {
   id: number
   documentId: string
+  facultad: string
   nombre: string
   slug: string
-  descripcion: string | null
   tipo_programa: TipoProgramaRef | null
+  descripcion: string | null
+  imagen: StrapiImage
+  convocatoria: boolean
+  objetivo_general: string
+  objetivos_especificos: string
+  perfil_posgraduado: string
+  modalidad: string
+  inversion: Inversion
+  malla_curricular: MallaCurricular
 }
+
+/* Shared */
+export interface Inversion {
+  id: number
+  matricula: number
+  n_matricula: number
+  cuotas: number
+  valor_cuota: number
+}
+
+export interface MallaCurricular {
+  id: number
+  descripcion: string
+  primer_semestres: Cursos[]
+  segundo_semestres: Cursos[]
+  electivos: Cursos[]
+}
+
+export interface Cursos{
+  id:number
+  asignatura: string
+  creditos: number
+  categoria: string
+}
+/* */
 
 interface TipoProgramaRef {
   id: number
