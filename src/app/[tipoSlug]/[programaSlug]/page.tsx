@@ -50,9 +50,6 @@ export default async function ProgramaPage({ params }: Props) {
   const programa = await getProgramaBySlug(programaSlug)
 
   if (!programa) notFound()
-
-  console.log(programa)
-
   return (
     <>
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
@@ -104,7 +101,7 @@ export default async function ProgramaPage({ params }: Props) {
           </div>
         </div>
       </section>
-      <ProgramaTabs />
+      <ProgramaTabs programa={programa}/>
     </>
   )
 }

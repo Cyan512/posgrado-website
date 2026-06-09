@@ -55,12 +55,10 @@ export interface Programa {
   descripcion: string | null
   imagen: StrapiImage
   convocatoria: boolean
-  objetivo_general: string
-  objetivos_especificos: string
-  perfil_posgraduado: string
-  modalidad: string
   inversion: Inversion
-  malla_curricular: MallaCurricular
+  modalidad: string
+  malla_curricular: Cursos[]
+  presentacion: Presentacion | null
 }
 
 /* Shared */
@@ -72,19 +70,21 @@ export interface Inversion {
   valor_cuota: number
 }
 
-export interface MallaCurricular {
+export interface Cursos {
   id: number
-  descripcion: string
-  primer_semestres: Cursos[]
-  segundo_semestres: Cursos[]
-  electivos: Cursos[]
-}
-
-export interface Cursos{
-  id:number
+  documentId: string
   asignatura: string
   creditos: number
   categoria: string
+  modulo: string
+  programa: { id: number; documentId: string; nombre: string; slug: string } | null
+}
+
+export interface Presentacion{
+  id:number
+  objetivo_general: string
+  objetivos_especificos: string
+  perfil_posgraduado: string
 }
 /* */
 

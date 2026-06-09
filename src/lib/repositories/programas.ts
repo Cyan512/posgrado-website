@@ -2,13 +2,13 @@ import { cache } from "react"
 import type { Programa } from "@/lib/types"
 import { fetchCollection } from "./client"
 
+
 const POPULATE = [
   "populate[tipo_programa]=true",
   "populate[imagen]=true",
   "populate[inversion]=true",
-  "populate[malla_curricular][populate][primer_semestres]=true",
-  "populate[malla_curricular][populate][segundo_semestres]=true",
-  "populate[malla_curricular][populate][electivos]=true",
+  "populate[presentacion]=true",
+  "populate[malla_curricular]=true",
 ].join("&")
 
 export const getProgramas = cache(async (): Promise<Programa[]> => {

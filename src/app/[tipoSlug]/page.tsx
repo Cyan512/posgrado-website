@@ -30,6 +30,7 @@ export default async function TipoProgramaPage({ params }: Props) {
   if (!tipo) notFound()
 
   const bgUrl = tipo.imagen_bg?.formats?.large?.url ?? tipo.imagen_bg?.url ?? null
+   console.log("tipo",tipo)
 
   return (
     <>
