@@ -36,10 +36,8 @@ export default async function TipoProgramaPage({ params }: Props) {
     <>
       <Hero title={tipo.nombre} backgroundUrl={bgUrl} />
 
-      <section className="w-full bg-secondary dark:bg-transparent py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <TipoProgramaFilter programas={tipo.programas} tipoSlug={tipo.slug} />
-        </div>
+      <section className="grow max-w-7xl mx-auto w-full px-6 py-12">
+        <TipoProgramaFilter programas={tipo.programas} tipoSlug={tipo.slug} />
       </section>
     </>
   )
