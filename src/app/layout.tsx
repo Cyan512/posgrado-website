@@ -3,21 +3,9 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/layouts/Footer";
 import { SkipToContent } from "@/components/layouts/SkipToContent";
 import "./globals.css";
-import { Hanken_Grotesk, Source_Sans_3 } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Header from "@/components/layouts/Header";
-
-const hankenGrotesk = Hanken_Grotesk({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-heading",
-});
-
-const sourceSans3 = Source_Sans_3({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-sans",
-});
+import { hankenGrotesk, sourceSans3 } from "@/font";
 
 export const metadata: Metadata = {
   title: {
