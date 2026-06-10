@@ -21,7 +21,7 @@ export function ProgramaTabContent({ programa }: Props) {
                 <MallaCurricularTab data={programa.malla_curricular} />
             </TabsContent>
             <TabsContent value="inversion-becas">
-                <InversionBecasTab />
+                <InversionBecasTab data={programa.inversion} modalidad={programa.modalidad}/>
             </TabsContent>
             <TabsContent value="lineas-investigacion">
                 <LineasInvestigacionTab />

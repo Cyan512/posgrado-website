@@ -13,15 +13,13 @@ export function PresentacionTab({ data }: Props) {
             {data.objetivo_general && (
                 <section className="group">
                     <div className="mb-4 pb-2 border-b-2 border-primary/20">
-                        <h2 className="text-2xl font-semibold text-foreground tracking-tight">
+                        <h2 className="text-2xl font-semibold text-foreground tracking-tight font-heading">
                             Objetivo General
                         </h2>
                     </div>
-                    <div className="prose prose-lg max-w-none">
-                        <p className="text-muted-foreground leading-relaxed text-[17px] font-light">
-                            {data.objetivo_general}
-                        </p>
-                    </div>
+                    <p className="text-muted-foreground leading-relaxed text-base font-light">
+                        {data.objetivo_general}
+                    </p>
                 </section>
             )}
 
@@ -29,7 +27,7 @@ export function PresentacionTab({ data }: Props) {
             {data.objetivos_especificos && (
                 <section className="group">
                     <div className="mb-4 pb-2 border-b-2 border-primary/20">
-                        <h2 className="text-2xl font-semibold text-foreground tracking-tight">
+                        <h2 className="text-2xl font-semibold text-foreground tracking-tight font-heading">
                             Objetivos Específicos
                         </h2>
                     </div>
@@ -42,7 +40,7 @@ export function PresentacionTab({ data }: Props) {
                                     key={index}
                                     className="bg-linear-to-r from-primary/5 to-transparent border-l-2 border-primary pl-6 py-2 transition-all duration-200 hover:from-primary/10 hover:border-l-4"
                                 >
-                                    <p className="text-muted-foreground leading-relaxed text-[16px] font-light">
+                                    <p className="text-muted-foreground leading-relaxed text-base font-light">
                                         {objetivo}
                                     </p>
                                 </div>
@@ -55,17 +53,18 @@ export function PresentacionTab({ data }: Props) {
             {data.perfil_posgraduado && (
                 <section className="group">
                     <div className="mb-4 pb-2 border-b-2 border-primary/20">
-                        <h2 className="text-2xl font-semibold text-foreground tracking-tight">
+                        <h2 className="text-2xl font-semibold text-foreground tracking-tight font-heading">
                             Perfil del Graduado
                         </h2>
                     </div>
                     <div className="bg-linear-to-r from-primary/5 to-transparent border-l-2 border-primary pl-6 py-4">
-                        <p className="text-muted-foreground leading-relaxed text-[17px] font-light">
+                        <p className="text-muted-foreground leading-relaxed text-base font-light">
                             {data.perfil_posgraduado}
                         </p>
                     </div>
                 </section>
             )}
         </div>
+
     )
 }
