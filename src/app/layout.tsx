@@ -3,13 +3,19 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/layouts/Footer";
 import { SkipToContent } from "@/components/layouts/SkipToContent";
 import "./globals.css";
-import { Merriweather } from "next/font/google";
+import { Hanken_Grotesk, Source_Sans_3 } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Header from "@/components/layouts/Header";
 
-const merriweather = Merriweather({
+const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
-  weight: ["300", "400", "700", "900"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-heading",
+});
+
+const sourceSans3 = Source_Sans_3({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-sans",
 });
 
@@ -39,11 +45,12 @@ export default function RootLayout({
       className={cn(
         "h-full antialiased",
         "font-sans",
-        merriweather.variable
+        hankenGrotesk.variable,
+        sourceSans3.variable
       )}>
       <body className="min-h-full flex flex-col">
         <SkipToContent />
-        <Header/>
+        <Header />
         <main id="main-content" className="flex-1">
           {children}
         </main>
