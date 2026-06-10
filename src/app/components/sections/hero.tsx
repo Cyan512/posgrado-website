@@ -73,7 +73,7 @@ export default function Hero({ tipos }: HeroProps) {
           </div>
         </div>
 
-        {/* Columna Derecha: Tarjeta con Formulario de Postulación */}
+        {/* Columna Derecha: Tarjeta con Formulario de Postulación 
         <div className="lg:col-span-5 w-full max-w-md mx-auto">
           <div className="bg-white dark:bg-card text-foreground p-6 md:p-8 rounded-xl shadow-md border border-border/20">
             <h2 className="text-2xl font-serif font-bold text-primary mb-2">
@@ -83,11 +83,10 @@ export default function Hero({ tipos }: HeroProps) {
               Un asesor académico te guiará en cada paso de tu crecimiento profesional.
             </p>
 
-            {/* Formulario */}
             <FormProgram tipos={tipos} />
           </div>
         </div>
-
+        */}
       </div>
     </section>
   )
