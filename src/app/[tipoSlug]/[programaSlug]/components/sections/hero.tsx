@@ -27,7 +27,7 @@ export default function Hero({ programa }: Props) {
                     {programa.facultad}
                 </Badge>
 
-                <h1 className="text-4xl md:text-5xl font-serif font-bold tracking-tight max-w-3xl leading-tight">
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight max-w-3xl leading-tight">
                     {programa.nombre}
                 </h1>
 
