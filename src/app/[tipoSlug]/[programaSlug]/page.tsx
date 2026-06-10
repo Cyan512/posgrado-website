@@ -101,7 +101,9 @@ export default async function ProgramaPage({ params }: Props) {
           </div>
         </div>
       </section>
-      <ProgramaTabs programa={programa}/>
+      <main>
+      </main>
+      <ProgramaTabs programa={programa} />
     </>
   )
 }

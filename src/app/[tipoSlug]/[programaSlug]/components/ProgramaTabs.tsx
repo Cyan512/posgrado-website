@@ -15,8 +15,6 @@ interface Props {
 }
 
 export function ProgramaTabs({ programa }: Props) {
-
-
     return (
         <Tabs defaultValue="presentacion" className="w-full max-w-4xl mx-auto">
             <TabsList>
