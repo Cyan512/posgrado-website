@@ -30,7 +30,7 @@ export default async function TipoProgramaPage({ params }: Props) {
   if (!tipo) notFound()
 
   const bgUrl = tipo.imagen_bg?.formats?.large?.url ?? tipo.imagen_bg?.url ?? null
-   console.log("tipo",tipo)
+  console.log("tipo", tipo)
 
   return (
     <>
@@ -38,15 +38,6 @@ export default async function TipoProgramaPage({ params }: Props) {
 
       <section className="w-full bg-secondary dark:bg-transparent py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-end justify-between border-b border-border/30 pb-4 mb-10">
-            <h2 className="text-2xl font-serif font-bold text-primary tracking-wide">
-              Nuestras Maestrías
-            </h2>
-            <span className="text-xs text-muted-foreground font-medium italic">
-              24 programas encontrados
-            </span>
-          </div>
-
           <TipoProgramaFilter programas={tipo.programas} tipoSlug={tipo.slug} />
         </div>
       </section>
